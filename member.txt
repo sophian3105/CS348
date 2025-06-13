@@ -1,0 +1,22 @@
+Member progress:
+1. Aurora
+- Explained framework and database
+- Described Feature 1
+- Listed tables and keys for DB
+- Initialized application
+- Wrote SQL to create tables
+2. Elsie
+- Described Feature 2
+- Wrote plan for toy data
+3. Helen
+- Wrote high-level description
+- Described Feature 3
+4. Alice
+- Described Feature 4
+- Created E/R diagram
+- Designed DB
+5. Sophia
+- Described Feature 5
+- Created E/R diagram
+- Made repo
+- Designed DB
