@@ -1,19 +1,19 @@
 report_id	occurred_at	location_name	source
-u1-report	2025-06-05	Sidewalk	user
-u2-report	2025-06-03	Park	user
+f1dcc554-4873-11f0-a813-ba5b9af1ecc8	2025-06-05	Sidewalk	user
+f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Park	user
 report_id	occurred_at	location_name	source
-p1-uuid	2025-05-10	Street	police
-p2-uuid	2025-04-20	Transit Station	police
+f1dc2bee-4873-11f0-a813-ba5b9af1ecc8	2025-05-10	Street	police
+f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Transit Station	police
 report_id	occurred_at	location_name	source
-u1-report	2025-06-05	Kensington Market	user
-u2-report	2025-06-03	Brampton	user
-p1-uuid	2025-05-10	Entertainment District	police
-p2-uuid	2025-04-20	Brampton	police
+f1dcc554-4873-11f0-a813-ba5b9af1ecc8	2025-06-05	Kensington Market	user
+f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Brampton	user
+f1dc2bee-4873-11f0-a813-ba5b9af1ecc8	2025-05-10	Entertainment District	police
+f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Brampton	police
 report_id	occured_at	location_name	type_id	source
-p2-uuid	2025-04-20	Brampton	Theft in Brampton	police
-u2-report	2025-06-03	Brampton	Brampton Robbery	user
+f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Brampton	Theft in Brampton	police
+f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Brampton	Brampton Robbery	user
 report_id	occured_at	location_name	type_id
-u2-report	2025-06-03	Brampton	Brampton Robbery
-p1-uuid	2025-05-10	Entertainment District	Physical Assault
-p2-uuid	2025-04-20	Brampton	Theft in Brampton
-u1-report	2025-06-05	Kensington Market	Verbal Harassment
+f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Brampton	Brampton Robbery
+f1dc2bee-4873-11f0-a813-ba5b9af1ecc8	2025-05-10	Entertainment District	Physical Assault
+f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Brampton	Theft in Brampton
+f1dcc554-4873-11f0-a813-ba5b9af1ecc8	2025-06-05	Kensington Market	Verbal Harassment
