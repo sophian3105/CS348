@@ -1,5 +1,20 @@
+DROP TABLE IF EXISTS assaultComments;
+DROP TABLE IF EXISTS userLocation;
+DROP TABLE IF EXISTS policeLocation;
+DROP TABLE IF EXISTS userReports;
+DROP TABLE IF EXISTS policeReports;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    user_id CHAR(36) NOT NULL PRIMARY KEY,
+    email VARCHAR(256),
+    full_name VARCHAR(256),
+    created_at DATE,
+    birth_date DATE
+);
+
 CREATE TABLE policeReports (
-    r_id UUID NOT NULL PRIMARY KEY,
+    r_id CHAR(36) NOT NULL PRIMARY KEY,
     assault_type VARCHAR(256),
     occurence_date DATE,
     reported_date DATE,
@@ -7,17 +22,15 @@ CREATE TABLE policeReports (
 );
 
 CREATE TABLE userReports (
-    r_id UUID NOT NULL PRIMARY KEY,
+    r_id CHAR(36) NOT NULL PRIMARY KEY,
     assault_type VARCHAR(256),
     occurence_date DATE,
     reported_date DATE,
-    user_id UUID,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    CHECK (DATEDIFF(reported_date, occurence_date) <= 365)
+    user_id CHAR(36),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
 CREATE TABLE policeLocation (
-    r_id UUID PRIMARY KEY,
+    r_id CHAR(36) PRIMARY KEY,
     longitude FLOAT,
     latitude FLOAT,
     neighborhood VARCHAR(256),
@@ -27,7 +40,7 @@ CREATE TABLE policeLocation (
 );
 
 CREATE TABLE userLocation (
-    r_id UUID PRIMARY KEY,
+    r_id CHAR(36) PRIMARY KEY,
     longitude FLOAT,
     latitude FLOAT,
     neighborhood VARCHAR(256),
@@ -36,17 +49,9 @@ CREATE TABLE userLocation (
     FOREIGN KEY (r_id) REFERENCES userReports(r_id)
 );
 
-CREATE TABLE users (
-    user_id UUID NOT NULL PRIMARY KEY,
-    email VARCHAR(256),
-    full_name VARCHAR(256),
-    created_at DATE,
-    birth_date DATE
-);
-
 CREATE TABLE assaultComments (
-    user_id UUID NOT NULL,
-    r_id UUID NOT NULL,
+    user_id CHAR(36) NOT NULL,
+    r_id CHAR(36) NOT NULL,
     created_at DATE,
     comments TEXT,
     PRIMARY KEY (r_id, user_id),

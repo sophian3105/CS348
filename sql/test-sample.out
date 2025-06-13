@@ -1,0 +1,19 @@
+report_id	occurred_at	location_name	source
+u1-report	2025-06-05	Sidewalk	user
+u2-report	2025-06-03	Park	user
+report_id	occurred_at	location_name	source
+p1-uuid	2025-05-10	Street	police
+p2-uuid	2025-04-20	Transit Station	police
+report_id	occurred_at	location_name	source
+u1-report	2025-06-05	Kensington Market	user
+u2-report	2025-06-03	Brampton	user
+p1-uuid	2025-05-10	Entertainment District	police
+p2-uuid	2025-04-20	Brampton	police
+report_id	occured_at	location_name	type_id	source
+p2-uuid	2025-04-20	Brampton	Theft in Brampton	police
+u2-report	2025-06-03	Brampton	Brampton Robbery	user
+report_id	occured_at	location_name	type_id
+u2-report	2025-06-03	Brampton	Brampton Robbery
+p1-uuid	2025-05-10	Entertainment District	Physical Assault
+p2-uuid	2025-04-20	Brampton	Theft in Brampton
+u1-report	2025-06-05	Kensington Market	Verbal Harassment
