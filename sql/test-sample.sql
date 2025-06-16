@@ -66,3 +66,19 @@ SELECT pr.r_id AS report_id, pr.occurence_date AS occured_at, pl.neighborhood AS
 FROM policeReports pr
 JOIN policeLocation pl ON pr.r_id = pl.r_id
 ORDER BY type_id ASC;
+
+-- R10a: Sort by worst neighbouhood
+SELECT neighborhood AS worstNbhd
+FROM (
+    SELECT neighborhood, COUNT(*) AS total_reports
+    FROM policeLocation
+    GROUP BY neighborhood
+    UNION ALL
+    SELECT neighborhood, COUNT(*) AS total_reports
+    FROM userLocation
+    GROUP BY neighborhood
+) AS combinedNeighborhoods
+GROUP BY neighborhood
+ORDER BY SUM(total_reports) DESC
+LIMIT 3;
+
