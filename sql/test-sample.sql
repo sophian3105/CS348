@@ -6,6 +6,7 @@ USE cs348;
 SELECT
   ur.r_id AS report_id,
   ur.occurence_date AS occurred_at,
+  ul.neighborhood AS neighborhood,
   ul.location_type AS location_name,
   'user' AS source
 FROM userReports ur
@@ -16,6 +17,7 @@ ORDER BY ur.occurence_date DESC;
 SELECT
   pr.r_id AS report_id,
   pr.occurence_date AS occurred_at,
+  pl.neighborhood AS neighborhood,
   pl.location_type AS location_name,
   'police' AS source
 FROM policeReports pr
