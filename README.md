@@ -1,4 +1,4 @@
-Current Features
+## Current Features
 - Loaded a test sample dataset
 - Query Runner Interface: Run predefined queries (R6a, R6b, R7, R8, R9, R10) via dropdown.
 - Filter by Source (R6a/R6b): View only user-submitted or police-reported assaults.
