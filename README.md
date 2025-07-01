@@ -23,7 +23,8 @@ http://127.0.0.1:8000/queryRunner.php
 
 In a separate terminal, run
 ```bash
-mysql -u root -p -h 127.0.0.1 < sql/createTables.s
+cd src
+mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/seed.sql
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 ```
