@@ -16,9 +16,18 @@ npm install
 npm run dev
 ```
 
+## Environment file
+Create a .env.local file with the following certifications. Change the password if you have one set.
+
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=""
+MYSQL_DATABASE=cs348
+
+## Run SQL
+
 In a separate terminal, run
 ```bash
-cd src
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/seed.sql
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
@@ -26,3 +35,4 @@ mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 
 Launch the following url: http://localhost:3000
 
+The sql in the root folder is for marking. It has the aggregated test-sample files and sql files. The sql in the src folder is seperated (but has the same code), and is used for our api routes.
