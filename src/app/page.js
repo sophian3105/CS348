@@ -10,7 +10,7 @@ export default function Home() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/filter');
+      const res = await fetch('/api/coordinates');
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
       const json = await res.json();
       console.log('response JSON:', json);       
