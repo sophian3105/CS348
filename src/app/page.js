@@ -361,7 +361,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* CTA Section */}
       <section
         style={{
           padding: "4rem 1rem",
