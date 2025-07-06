@@ -22,7 +22,7 @@ export default function TimeSortedReports() {
   }, [])
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto p-6 text-black">
       <h1 className="text-3xl font-bold mb-6 text-center">All Reports by Time</h1>
       {loading && <p className="text-center">Loading…</p>}
       {error   && <p className="text-center text-red-600">Error: {error}</p>}

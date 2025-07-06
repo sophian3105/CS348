@@ -10,8 +10,8 @@ export default function Navbar() {
 
   const mainLinks = [
     { href: "/", label: "Home" },
-    { href: "/reports", label: "Dashboard" },
-    { href: "/search", label: "Report" },
+    { href: "/dashboard", label: "Dashboard" },
+    { href: "/report", label: "Report" },
   ]
 
   const analyticsLinks = [

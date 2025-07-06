@@ -26,7 +26,7 @@ MYSQL_DATABASE=cs348
 In a separate terminal, run
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
-mysql -u root -p -h 127.0.0.1 < sql/seed.sql
+mysql -u root -p -h 127.0.0.1 < sql/datasample.sql
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 ```
 

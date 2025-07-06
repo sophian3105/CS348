@@ -22,7 +22,7 @@ export default function WorstNeighborhoods() {
   }, [])
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-3xl mx-auto p-6 text-black">
       <h1 className="text-3xl font-bold mb-6 text-center">Top 3 Worst Neighborhoods</h1>
       {loading && <p className="text-center">Loading…</p>}
       {error   && <p className="text-center text-red-600">Error: {error}</p>}

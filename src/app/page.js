@@ -11,7 +11,7 @@ export default function Home() {
   const fetchTop3 = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/filter");
+      const res = await fetch("/api/worst");
       const json = await res.json();
       setData(json.rows);
     } catch (e) {
@@ -161,13 +161,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="/submit"
+              href="/report"
               className="bg-white text-blue-800 font-semibold text-lg rounded-lg px-8 py-4 transition hover:bg-gray-100"
             >
               Report an Incident
             </Link>
             <Link
-              href="/reports"
+              href="/analytics/sourcesort"
               className="border-2 border-white text-white font-semibold text-lg rounded-lg px-8 py-4 transition hover:bg-white hover:text-blue-800"
             >
               View All Reports
