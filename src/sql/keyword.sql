@@ -7,8 +7,8 @@ SELECT
   'police' AS source
 FROM policeReports pr
 JOIN policeLocation pl ON pr.r_id = pl.r_id
-WHERE LOWER(pr.assault_type) LIKE LOWER('%brampton%')
-   OR LOWER(pl.neighborhood) LIKE LOWER('%brampton%')
+WHERE LOWER(pr.assault_type) LIKE LOWER('%weapon%')
+   OR LOWER(pl.neighborhood) LIKE LOWER('%kensington%')
 
 UNION ALL
 
@@ -20,5 +20,5 @@ SELECT
   'user' AS source
 FROM userReports ur
 JOIN userLocation ul ON ur.r_id = ul.r_id
-WHERE LOWER(ur.assault_type) LIKE LOWER('%brampton%')
-   OR LOWER(ul.neighborhood) LIKE LOWER('%brampton%');
+WHERE LOWER(ur.assault_type) LIKE LOWER('%weapon%')
+   OR LOWER(ul.neighborhood) LIKE LOWER('%kensington%');

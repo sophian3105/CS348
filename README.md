@@ -1,5 +1,5 @@
 ## Current Features
-- Loaded a test sample dataset
+- Loaded a production dataset, file found in src/dataprod.sql
 - Filter by Source (R6a/R6b): View only user-submitted or police-reported assaults.
 - Unified Timeline (R7): All reports ordered by occurrence date.
 - Keyword Search (R8): Search across assault types and neighborhoods
@@ -23,10 +23,10 @@ MYSQL_DATABASE=cs348
 
 ## Run SQL
 
-In a separate terminal, run
+In a separate terminal, run the following commands to create SQL tables and populate with data. Use "sql/sample-data.sql" to populate with the sample data instead. 
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
-mysql -u root -p -h 127.0.0.1 < sql/datasample.sql
+mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 ```
 

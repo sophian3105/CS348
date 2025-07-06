@@ -11,19 +11,19 @@ export default function KeywordReports() {
     setLoading(true)
     setError(null)
 
-    fetch('/api/keyword')   // calls R8a/R8b SQL with hard-coded '%brampton%'
+    fetch('/api/keyword')   // calls R8a/R8b SQL with hard-coded '%kensington%'
       .then(res => {
         if (!res.ok) throw new Error(`Fetch error: ${res.status}`)
         return res.json()
       })
-      .then(data => setReports(Array.isArray(data.rows) ? data.rows : []))
+      .then(data => {console.log(data); setReports(Array.isArray(data.rows) ? data.rows : [])})
       .catch(err => setError(err.message))
       .finally(() => setLoading(false))
   }, [])
 
   return (
     <div className="max-w-5xl mx-auto p-6 text-black">
-      <h1 className="text-3xl font-bold mb-6 text-center">Keyword Search: “Brampton”</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Keyword Search: Assuault with weapon or neighborhood in Kensington</h1>
       {loading && <p className="text-center">Loading…</p>}
       {error   && <p className="text-center text-red-600">Error: {error}</p>}
       {!loading && !error && (
