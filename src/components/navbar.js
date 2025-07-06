@@ -10,9 +10,8 @@ export default function Navbar() {
 
   const mainLinks = [
     { href: "/", label: "Home" },
-    { href: "/reports", label: "Reports" },
-    { href: "/search", label: "Search" },
-    { href: "/submit", label: "Submit" },
+    { href: "/reports", label: "Dashboard" },
+    { href: "/search", label: "Report" },
   ]
 
   const analyticsLinks = [
@@ -25,311 +24,99 @@ export default function Navbar() {
   ]
 
   return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: "white",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-        zIndex: 50,
-        borderBottom: "1px solid #e5e7eb",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 1rem",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          height: "64px",
-        }}
-      >
+    <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 shadow-sm z-999">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            textDecoration: "none",
-          }}
-        >
-          <div
-            style={{
-              width: "32px",
-              height: "32px",
-              backgroundColor: "#2563eb",
-              borderRadius: "6px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontSize: "18px",
-              fontWeight: "bold",
-            }}
-          >
+        <Link href="/" className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-blue-600 rounded-md flex items-center justify-center text-white text-lg font-bold">
             ⚠
           </div>
-          <span
-            style={{
-              fontSize: "20px",
-              fontWeight: "bold",
-              color: "#2563eb",
-            }}
-          >
-            AssaultTracker
-          </span>
+          <span className="text-xl font-bold text-blue-600">AssaultTracker</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div
-          style={{
-            display: "none",
-            alignItems: "center",
-            gap: "2rem",
-          }}
-          className="desktop-nav"
-        >
+        <div className="hidden md:flex items-center gap-8">
           {mainLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              style={{
-                color: "#374151",
-                textDecoration: "none",
-                fontWeight: "500",
-                padding: "0.5rem 1rem",
-                borderRadius: "6px",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.color = "#2563eb"
-                e.target.style.backgroundColor = "#eff6ff"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.color = "#374151"
-                e.target.style.backgroundColor = "transparent"
-              }}
+              className="text-gray-700 font-medium py-2 px-3 rounded-md transition-colors duration-200 hover:text-blue-600 hover:bg-blue-50"
             >
               {label}
             </Link>
           ))}
 
           {/* Analytics Dropdown */}
-          <div style={{ position: "relative" }}>
+          <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.25rem",
-                color: "#374151",
-                background: "none",
-                border: "none",
-                fontWeight: "500",
-                padding: "0.5rem 1rem",
-                borderRadius: "6px",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.color = "#2563eb"
-                e.target.style.backgroundColor = "#eff6ff"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.color = "#374151"
-                e.target.style.backgroundColor = "transparent"
-              }}
+              className="flex items-center gap-1 text-gray-700 font-medium py-2 px-3 rounded-md transition-colors duration-200 hover:text-blue-600 hover:bg-blue-50 focus:outline-none"
             >
-              📊 Analytics ▼
+              📊 Analytics <span className="text-sm">▼</span>
             </button>
 
             {dropdownOpen && (
-              <div
-                style={{
-                  position: "absolute",
-                  right: 0,
-                  top: "100%",
-                  marginTop: "0.5rem",
-                  width: "240px",
-                  backgroundColor: "white",
-                  borderRadius: "8px",
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
-                  border: "1px solid #e5e7eb",
-                  padding: "0.5rem 0",
-                  zIndex: 50,
-                }}
-              >
-                <div
-                  style={{
-                    padding: "0.5rem 1rem",
-                    borderBottom: "1px solid #e5e7eb",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  <h3
-                    style={{
-                      fontWeight: "600",
-                      color: "#111827",
-                      margin: 0,
-                      fontSize: "14px",
-                    }}
-                  >
-                    SQL Analytics
-                  </h3>
+              <div className="absolute right-0 mt-6 w-60 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                <div className="px-4 pb-2 border-b border-gray-200 mb-2">
+                  <h3 className="text-sm font-semibold text-gray-900 m-0">SQL Analytics</h3>
                 </div>
-                {analyticsLinks.map((feature) => (
+                {analyticsLinks.map(({ href, label }) => (
                   <Link
-                    key={feature.href}
-                    href={feature.href}
+                    key={href}
+                    href={href}
                     onClick={() => setDropdownOpen(false)}
-                    style={{
-                      display: "block",
-                      padding: "0.5rem 1rem",
-                      color: "#374151",
-                      textDecoration: "none",
-                      fontSize: "14px",
-                      transition: "all 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = "#eff6ff"
-                      e.target.style.color = "#2563eb"
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = "transparent"
-                      e.target.style.color = "#374151"
-                    }}
+                    className="block px-4 py-2 text-gray-700 text-sm transition-colors duration-200 hover:text-blue-600 hover:bg-blue-50"
                   >
-                    {feature.label}
+                    {label}
                   </Link>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Map Button */}
+          {/* View Map Button */}
           <Link
             href="/map"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.5rem 1rem",
-              backgroundColor: "#2563eb",
-              color: "white",
-              textDecoration: "none",
-              borderRadius: "8px",
-              fontWeight: "500",
-              transition: "all 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "#1d4ed8"
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = "#2563eb"
-            }}
+            className="flex items-center gap-1 bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 hover:bg-blue-700"
           >
             🗺️ View Map
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          style={{
-            display: "block",
-            background: "none",
-            border: "none",
-            color: "#374151",
-            cursor: "pointer",
-            padding: "0.5rem",
-          }}
-          className="mobile-menu-btn"
+          className="md:hidden p-2 text-gray-700 focus:outline-none"
         >
           {open ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {open && (
-        <div
-          style={{
-            backgroundColor: "white",
-            borderTop: "1px solid #e5e7eb",
-            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-          }}
-        >
-          <div style={{ padding: "1rem" }}>
+        <div className="bg-white border-t border-gray-200 shadow-md md:hidden">
+          <div className="px-4 py-2">
             {mainLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                style={{
-                  display: "block",
-                  padding: "0.75rem 1rem",
-                  color: "#374151",
-                  textDecoration: "none",
-                  borderRadius: "6px",
-                  marginBottom: "0.25rem",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "#eff6ff"
-                  e.target.style.color = "#2563eb"
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "transparent"
-                  e.target.style.color = "#374151"
-                }}
+                className="block text-gray-700 py-2 px-3 rounded-md mb-1 transition-colors duration-200 hover:text-blue-600 hover:bg-blue-50"
               >
                 {label}
               </Link>
             ))}
 
-            <div
-              style={{
-                borderTop: "1px solid #e5e7eb",
-                paddingTop: "1rem",
-                marginTop: "1rem",
-              }}
-            >
-              <div
-                style={{
-                  padding: "0.5rem 1rem",
-                  fontWeight: "600",
-                  color: "#111827",
-                  fontSize: "14px",
-                }}
-              >
-                Analytics
-              </div>
-              {analyticsLinks.map((feature) => (
+            <div className="border-t border-gray-200 mt-2 pt-2">
+              <div className="px-3 text-sm font-semibold text-gray-900 mb-1">Analytics</div>
+              {analyticsLinks.map(({ href, label }) => (
                 <Link
-                  key={feature.href}
-                  href={feature.href}
+                  key={href}
+                  href={href}
                   onClick={() => setOpen(false)}
-                  style={{
-                    display: "block",
-                    padding: "0.5rem 1rem",
-                    color: "#6b7280",
-                    textDecoration: "none",
-                    fontSize: "14px",
-                    marginLeft: "1rem",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#eff6ff"
-                    e.target.style.color = "#2563eb"
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "transparent"
-                    e.target.style.color = "#6b7280"
-                  }}
+                  className="block text-gray-500 text-sm py-2 pl-5 px-3 mb-1 transition-colors duration-200 hover:text-blue-600 hover:bg-blue-50"
                 >
-                  {feature.label}
+                  {label}
                 </Link>
               ))}
             </div>
@@ -337,36 +124,13 @@ export default function Navbar() {
             <Link
               href="/map"
               onClick={() => setOpen(false)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.5rem",
-                padding: "0.75rem 1rem",
-                backgroundColor: "#2563eb",
-                color: "white",
-                textDecoration: "none",
-                borderRadius: "8px",
-                fontWeight: "500",
-                marginTop: "1rem",
-              }}
+              className="flex items-center justify-center gap-1 mt-2 py-2 px-4 bg-blue-600 text-white font-medium rounded-md transition-colors duration-200 hover:bg-blue-700"
             >
               🗺️ View Map
             </Link>
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @media (min-width: 768px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .mobile-menu-btn {
-            display: none !important;
-          }
-        }
-      `}</style>
     </nav>
   )
 }
