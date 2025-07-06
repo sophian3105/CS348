@@ -7,7 +7,7 @@
 - Worst Neighborhoods (R10): Top 3 neighborhoods by combined police/user reports.
 - User interface allowing users to perform the 5 features above
 - Fancy feature 1 (R11):
-- Fancy feature 2 (R12): Interactive map that shows the police and user reports in Toronto, underlying SQL does ...
+- Fancy feature 2 (R12): Interactive map that shows the police and user reports in Toronto with heatmaps of areas with a lot of crimes. Underlying sql puts crimes in bins based on coordinates.
 
 ## Getting Started
 First, make sure to download all the node modules and start the development server

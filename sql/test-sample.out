@@ -1,19 +1,33 @@
+report_id	occurred_at	neighborhood	location_name	source
+f5256a5e-59fd-11f0-b6ff-beba6ae33662	2025-06-08	Kensington Market	Sidewalk	user
+f5256540-59fd-11f0-b6ff-beba6ae33662	2025-06-07	Kensington Market	Sidewalk	user
+f5255b18-59fd-11f0-b6ff-beba6ae33662	2025-06-05	Kensington Market	Sidewalk	user
+f525607c-59fd-11f0-b6ff-beba6ae33662	2025-06-03	Brampton	Park	user
+report_id	occurred_at	neighborhood	location_name	source
+f5250226-59fd-11f0-b6ff-beba6ae33662	2025-05-10	Entertainment District	Street	police
+f525083e-59fd-11f0-b6ff-beba6ae33662	2025-04-20	Brampton	Transit Station	police
 report_id	occurred_at	location_name	source
-f1dcc554-4873-11f0-a813-ba5b9af1ecc8	2025-06-05	Sidewalk	user
-f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Park	user
-report_id	occurred_at	location_name	source
-f1dc2bee-4873-11f0-a813-ba5b9af1ecc8	2025-05-10	Street	police
-f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Transit Station	police
-report_id	occurred_at	location_name	source
-f1dcc554-4873-11f0-a813-ba5b9af1ecc8	2025-06-05	Kensington Market	user
-f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Brampton	user
-f1dc2bee-4873-11f0-a813-ba5b9af1ecc8	2025-05-10	Entertainment District	police
-f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Brampton	police
+f5256a5e-59fd-11f0-b6ff-beba6ae33662	2025-06-08	Kensington Market	user
+f5256540-59fd-11f0-b6ff-beba6ae33662	2025-06-07	Kensington Market	user
+f5255b18-59fd-11f0-b6ff-beba6ae33662	2025-06-05	Kensington Market	user
+f525607c-59fd-11f0-b6ff-beba6ae33662	2025-06-03	Brampton	user
+f5250226-59fd-11f0-b6ff-beba6ae33662	2025-05-10	Entertainment District	police
+f525083e-59fd-11f0-b6ff-beba6ae33662	2025-04-20	Brampton	police
 report_id	occured_at	location_name	type_id	source
-f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Brampton	Theft in Brampton	police
-f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Brampton	Brampton Robbery	user
+f525083e-59fd-11f0-b6ff-beba6ae33662	2025-04-20	Brampton	Theft in Brampton	police
+f525607c-59fd-11f0-b6ff-beba6ae33662	2025-06-03	Brampton	Brampton Robbery	user
 report_id	occured_at	location_name	type_id
-f1dcc95a-4873-11f0-a813-ba5b9af1ecc8	2025-06-03	Brampton	Brampton Robbery
-f1dc2bee-4873-11f0-a813-ba5b9af1ecc8	2025-05-10	Entertainment District	Physical Assault
-f1dc2e5a-4873-11f0-a813-ba5b9af1ecc8	2025-04-20	Brampton	Theft in Brampton
-f1dcc554-4873-11f0-a813-ba5b9af1ecc8	2025-06-05	Kensington Market	Verbal Harassment
+f525607c-59fd-11f0-b6ff-beba6ae33662	2025-06-03	Brampton	Brampton Robbery
+f5256540-59fd-11f0-b6ff-beba6ae33662	2025-06-07	Kensington Market	Physical Assault
+f5250226-59fd-11f0-b6ff-beba6ae33662	2025-05-10	Entertainment District	Physical Assault
+f525083e-59fd-11f0-b6ff-beba6ae33662	2025-04-20	Brampton	Theft in Brampton
+f5255b18-59fd-11f0-b6ff-beba6ae33662	2025-06-05	Kensington Market	Verbal Harassment
+f5256a5e-59fd-11f0-b6ff-beba6ae33662	2025-06-08	Kensington Market	Verbal Harassment
+worstNbhd
+Kensington Market
+Brampton
+Entertainment District
+lat_bin	long_bin	occurrences
+43.65	-79.38	1
+43.65	-79.41	3
+43.7	-79.75	1
