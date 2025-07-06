@@ -15,12 +15,11 @@ export default function Navbar() {
   ]
 
   const analyticsLinks = [
-    { href: "/analytics/trends", label: "Feature 1" },
-    { href: "/analytics/demographics", label: "Feature 2" },
-    { href: "/analytics/hotspots", label: "Feature 3" },
-    { href: "/analytics/seasonal", label: "Feature 4" },
-    { href: "/analytics/severity", label: "Feature 5" },
-    { href: "/analytics/reports", label: "Feature 6" },
+    { href: "/analytics/sourcesort", label: "Reports By Source" },
+    { href: "/analytics/keyword", label: "Keyword Search" },
+    { href: "/analytics/time", label: "View Recent" },
+    { href: "/analytics/assaultType", label: "Assault Types" },
+    { href: "/analytics/worst", label: "Dangerous Neigbourhoods" },
   ]
 
   return (
