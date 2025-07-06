@@ -42,8 +42,8 @@ INSERT INTO userLocation (r_id, longitude, latitude, neighborhood, location_type
 VALUES
 (@uuid_ur1, -79.40, 43.66, 'Kensington Market', 'Sidewalk', 'Public'),
 (@uuid_ur2, -79.75, 43.70, 'Brampton', 'Park', 'Public'),
-(@uuid_ur3, -79.40, 43.66, 'Kensington Market', 'Sidewalk', 'Public'),
-(@uuid_ur4, -79.40, 43.66, 'Kensington Market', 'Sidewalk', 'Public');
+(@uuid_ur3, -79.405, 43.6605, 'Kensington Market', 'Sidewalk', 'Public'),
+(@uuid_ur4, -79.406, 43.6604, 'Kensington Market', 'Sidewalk', 'Public');
 
 -- 6. ASSAULT COMMENTS
 INSERT INTO assaultComments (user_id, r_id, created_at, comments)
