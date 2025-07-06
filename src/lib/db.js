@@ -10,7 +10,6 @@ if (!pool) {
     password: process.env.MYSQL_PASSWORD || '',
     database: process.env.MYSQL_DATABASE || 'cs348',
     connectionLimit: 5,
-    // you can also add namedPlaceholders: true if you need them
   });
 }
 

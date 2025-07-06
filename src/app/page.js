@@ -1,124 +1,78 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
+import { useState } from "react";
+import Link from "next/link";
+import Footer from "../components/footer";
 
 export default function Home() {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchTop3 = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const res = await fetch("/api/mostdangerous")
-      const json = await res.json()
-      setData(json.rows)
+      const res = await fetch("/api/filter");
+      const json = await res.json();
+      setData(json.rows);
     } catch (e) {
-      console.error(e)
-      setData([])
+      console.error(e);
+      setData([]);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
+
+  const features = [
+    {
+      icon: "🗺️",
+      title: "Interactive Map",
+      description:
+        "Explore assault incidents across Toronto with our detailed interactive map",
+    },
+    {
+      icon: "📈",
+      title: "Trend Analysis",
+      description:
+        "View statistical trends and patterns in assault data over time",
+    },
+    {
+      icon: "🛡️",
+      title: "Safety Reports",
+      description:
+        "Access comprehensive safety reports for different neighborhoods",
+    },
+    {
+      icon: "⚠️",
+      title: "Report Incidents",
+      description:
+        "Submit new incident reports to help keep the community informed",
+    },
+  ];
 
   return (
-    <div style={{ minHeight: "100vh" }}>
-      {/* Hero Section */}
-      <section
-        style={{
-          background: "linear-gradient(135deg, #1e40af 0%, #3730a3 100%)",
-          color: "white",
-          padding: "5rem 1rem",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-          <h1
-            style={{
-              fontSize: "3rem",
-              fontWeight: "bold",
-              marginBottom: "1.5rem",
-              lineHeight: "1.2",
-            }}
-          >
+    <div className="flex flex-col min-h-screen">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-blue-800 to-indigo-700 text-white text-center py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 leading-tight">
             Toronto Assault Dashboard
           </h1>
-
-          <p
-            style={{
-              fontSize: "1.25rem",
-              marginBottom: "2.5rem",
-              opacity: "0.9",
-              maxWidth: "800px",
-              margin: "0 auto 2.5rem auto",
-              lineHeight: "1.6",
-            }}
-          >
-            Explore assault trends across Toronto, view hot-spots on an interactive map, and help keep our community
-            safe by reporting incidents.
+          <p className="text-xl mb-10 opacity-90 mx-auto max-w-2xl leading-relaxed">
+            Explore assault trends across Toronto, view hot-spots on an
+            interactive map, and help keep our community safe by reporting
+            incidents.
           </p>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-              alignItems: "center",
-            }}
-          >
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
               onClick={fetchTop3}
               disabled={loading}
-              style={{
-                padding: "1rem 2rem",
-                backgroundColor: "white",
-                color: "#1e40af",
-                border: "none",
-                borderRadius: "8px",
-                fontWeight: "600",
-                fontSize: "1rem",
-                cursor: loading ? "not-allowed" : "pointer",
-                opacity: loading ? 0.7 : 1,
-                transition: "all 0.2s",
-                minWidth: "250px",
-              }}
-              onMouseEnter={(e) => {
-                if (!loading) {
-                  e.target.style.backgroundColor = "#f3f4f6"
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!loading) {
-                  e.target.style.backgroundColor = "white"
-                }
-              }}
+              className="bg-white text-blue-800 font-semibold text-lg rounded-lg px-8 py-4 transition hover:bg-gray-100 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? "Loading..." : "Show Top 3 Dangerous Areas"}
             </button>
-
             <Link
               href="/map"
-              style={{
-                display: "inline-block",
-                padding: "1rem 2rem",
-                border: "2px solid white",
-                color: "white",
-                textDecoration: "none",
-                borderRadius: "8px",
-                fontWeight: "600",
-                fontSize: "1rem",
-                transition: "all 0.2s",
-                minWidth: "250px",
-                textAlign: "center",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = "white"
-                e.target.style.color = "#1e40af"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = "transparent"
-                e.target.style.color = "white"
-              }}
+              className="border-2 border-white text-white font-semibold text-lg rounded-lg px-8 py-4 transition hover:bg-white hover:text-blue-800"
             >
               View Interactive Map
             </Link>
@@ -126,231 +80,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section
-        style={{
-          padding: "4rem 1rem",
-          backgroundColor: "white",
-        }}
-      >
-        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <h2
-              style={{
-                fontSize: "2.5rem",
-                fontWeight: "bold",
-                color: "#111827",
-                marginBottom: "1rem",
-              }}
-            >
-              Comprehensive Safety Analytics
-            </h2>
-            <p
-              style={{
-                fontSize: "1.25rem",
-                color: "#6b7280",
-                maxWidth: "600px",
-                margin: "0 auto",
-              }}
-            >
-              Access powerful tools and insights to understand and improve community safety
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "2rem",
-            }}
-          >
-            {[
-              {
-                icon: "🗺️",
-                title: "Interactive Map",
-                description: "Explore assault incidents across Toronto with our detailed interactive map",
-              },
-              {
-                icon: "📈",
-                title: "Trend Analysis",
-                description: "View statistical trends and patterns in assault data over time",
-              },
-              {
-                icon: "🛡️",
-                title: "Safety Reports",
-                description: "Access comprehensive safety reports for different neighborhoods",
-              },
-              {
-                icon: "⚠️",
-                title: "Report Incidents",
-                description: "Submit new incident reports to help keep the community informed",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                style={{
-                  textAlign: "center",
-                  padding: "2rem",
-                  backgroundColor: "#f9fafb",
-                  borderRadius: "12px",
-                  transition: "all 0.3s",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "#f3f4f6"
-                  e.target.style.transform = "translateY(-4px)"
-                  e.target.style.boxShadow = "0 10px 25px rgba(0,0,0,0.1)"
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "#f9fafb"
-                  e.target.style.transform = "translateY(0)"
-                  e.target.style.boxShadow = "none"
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "3rem",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {feature.icon}
-                </div>
-                <h3
-                  style={{
-                    fontSize: "1.25rem",
-                    fontWeight: "600",
-                    color: "#111827",
-                    marginBottom: "0.75rem",
-                  }}
-                >
-                  {feature.title}
-                </h3>
-                <p
-                  style={{
-                    color: "#6b7280",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Top 3 Results */}
       {data.length > 0 && (
-        <section
-          style={{
-            padding: "4rem 1rem",
-            backgroundColor: "#fef2f2",
-          }}
-        >
-          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <h2
-                style={{
-                  fontSize: "2.5rem",
-                  fontWeight: "bold",
-                  color: "#111827",
-                  marginBottom: "1rem",
-                }}
-              >
+        <section className="py-16 px-4 bg-red-100">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 High-Risk Areas
               </h2>
-              <p
-                style={{
-                  fontSize: "1.25rem",
-                  color: "#6b7280",
-                }}
-              >
+              <p className="text-xl text-gray-500">
                 Areas requiring increased attention and safety measures
               </p>
             </div>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "2rem",
-              }}
-            >
+            <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {data.map((row, i) => (
                 <div
                   key={i}
-                  style={{
-                    backgroundColor: "white",
-                    padding: "2rem",
-                    borderRadius: "12px",
-                    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-                    borderLeft: "4px solid #dc2626",
-                    position: "relative",
-                    transition: "all 0.3s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = "translateY(-4px)"
-                    e.target.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15)"
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = "translateY(0)"
-                    e.target.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)"
-                  }}
+                  className="relative bg-white p-8 rounded-xl shadow-md border-l-4 border-red-600 transition transform hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "1rem",
-                      right: "1rem",
-                      backgroundColor: "#fee2e2",
-                      color: "#991b1b",
-                      padding: "0.25rem 0.75rem",
-                      borderRadius: "9999px",
-                      fontSize: "0.875rem",
-                      fontWeight: "600",
-                    }}
-                  >
+                  <span className="absolute top-4 right-4 bg-red-200 text-red-800 px-3 py-1 rounded-full text-sm font-semibold">
                     #{i + 1}
-                  </div>
-
-                  <div style={{ marginBottom: "1rem" }}>
-                    <div
-                      style={{
-                        fontSize: "2rem",
-                        marginBottom: "0.75rem",
-                      }}
-                    >
-                      ⚠️
-                    </div>
-                    <h3
-                      style={{
-                        fontSize: "1.5rem",
-                        fontWeight: "bold",
-                        color: "#111827",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      {row.worstNbhd}
-                    </h3>
-                    <p style={{ color: "#6b7280" }}>High incident concentration area</p>
-                  </div>
-
+                  </span>
+                  <div className="text-3xl mb-4">⚠️</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {row.worstNbhd}
+                  </h3>
+                  <p className="text-gray-500 mb-4">
+                    High incident concentration area
+                  </p>
                   <Link
                     href={`/map?area=${encodeURIComponent(row.worstNbhd)}`}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      color: "#dc2626",
-                      textDecoration: "none",
-                      fontWeight: "600",
-                      gap: "0.5rem",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "#991b1b"
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "#dc2626"
-                    }}
+                    className="inline-flex items-center text-red-600 font-semibold hover:text-red-800"
                   >
                     View on Map 🗺️
                   </Link>
@@ -361,96 +120,63 @@ export default function Home() {
         </section>
       )}
 
-      <section
-        style={{
-          padding: "4rem 1rem",
-          background: "linear-gradient(135deg, #1e40af 0%, #3730a3 100%)",
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <h2
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: "bold",
-              marginBottom: "1rem",
-            }}
-          >
-            Help Keep Toronto Safe
-          </h2>
+      {/* Features Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Comprehensive Safety Analytics
+            </h2>
+            <p className="text-xl text-gray-500 mx-auto max-w-lg">
+              Access powerful tools and insights to understand and improve
+              community safety
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 p-8 rounded-xl transition transform hover:-translate-y-1 hover:shadow-lg cursor-pointer"
+              >
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <p
-            style={{
-              fontSize: "1.25rem",
-              marginBottom: "2rem",
-              opacity: "0.9",
-            }}
-          >
-            Your reports and awareness contribute to a safer community for everyone
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-800 to-indigo-700 text-white text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Help Keep Toronto Safe</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Your reports and awareness contribute to a safer community for
+            everyone
           </p>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-              alignItems: "center",
-            }}
-          >
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/submit"
-              style={{
-                display: "inline-block",
-                padding: "1rem 2rem",
-                backgroundColor: "white",
-                color: "#1e40af",
-                textDecoration: "none",
-                borderRadius: "8px",
-                fontWeight: "600",
-                fontSize: "1rem",
-                transition: "all 0.2s",
-                minWidth: "200px",
-                textAlign: "center",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = "#f3f4f6"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = "white"
-              }}
+              className="bg-white text-blue-800 font-semibold text-lg rounded-lg px-8 py-4 transition hover:bg-gray-100"
             >
               Report an Incident
             </Link>
             <Link
               href="/reports"
-              style={{
-                display: "inline-block",
-                padding: "1rem 2rem",
-                border: "2px solid white",
-                color: "white",
-                textDecoration: "none",
-                borderRadius: "8px",
-                fontWeight: "600",
-                fontSize: "1rem",
-                transition: "all 0.2s",
-                minWidth: "200px",
-                textAlign: "center",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = "white"
-                e.target.style.color = "#1e40af"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = "transparent"
-                e.target.style.color = "white"
-              }}
+              className="border-2 border-white text-white font-semibold text-lg rounded-lg px-8 py-4 transition hover:bg-white hover:text-blue-800"
             >
               View All Reports
             </Link>
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
-  )
+  );
 }

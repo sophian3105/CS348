@@ -18,7 +18,7 @@ export default function MapPage() {
   };
 
   return (
-    <main className="relative w-full h-screen">
+    <main className="relative w-full h-[calc(100vh-64px)]">
       <Map className="z-0" scale={scale} numdays={days} showHeatmap={showHeatmap} />
 
       <div className="absolute bottom-4 right-4 z-999 flex flex-col gap-2 max-w-xs">

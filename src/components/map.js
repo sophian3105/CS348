@@ -69,7 +69,7 @@ export default function Map({ scale, numdays, showHeatmap }) {
       center={[43.6595283, -79.4041597]}
       zoom={12}
       scrollWheelZoom={false}
-      style={{ height: "100vh", width: "100vw" }}
+      style={{   height: "calc(100vh - 64px)", width: "100vw" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
