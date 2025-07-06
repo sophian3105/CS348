@@ -14,11 +14,8 @@ First, make sure to download all the node modules and start the development serv
 ```bash
 npm install
 npm run dev
+cp env.example .env.local
 ```
-
-## Environment file
-Create a .env.local file with the following certifications. Change the password if you have one set.
-
 MYSQL_HOST=localhost
 MYSQL_USER=root
 MYSQL_PASSWORD=""
