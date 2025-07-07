@@ -54,8 +54,19 @@ http://localhost:3000
 
 **Note: The sql in the root folder is for marking. It has the aggregated test-sample files and sql files. The sql in the src folder is seperated (but has the same code), and is used for our api routes.
 
+## Dashboard
+Navigate the assault database through the dashboard in the main page:
+
 <img width="1512" alt="Screenshot 2025-07-06 at 7 12 18 PM" src="https://github.com/user-attachments/assets/d27831f5-aa6b-432e-a671-621b475d6701" />
+
+## SQL Queries
+Use the analytics dropdown to view our SQL features:
+
 <img width="1501" alt="Screenshot 2025-07-06 at 8 54 16 PM" src="https://github.com/user-attachments/assets/33878c15-c580-49fd-a77a-c290c4f1a22c" />
+
+## Interactive map
+Explore the interactive map of user and police reports, with an additional heatmap for crime hotspots:
+
 <img width="1512" alt="Screenshot 2025-07-06 at 8 54 35 PM" src="https://github.com/user-attachments/assets/34d00a01-3612-404c-bf92-4c6d961b4573" />
 
 Video Demo:
