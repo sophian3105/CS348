@@ -16,10 +16,6 @@ npm install
 npm run dev
 cp env.example .env.local
 ```
-MYSQL_HOST=localhost
-MYSQL_USER=root
-MYSQL_PASSWORD=""
-MYSQL_DATABASE=cs348
 
 ## Running Database
 In a separate terminal, run the following commands to create SQL tables and populate with data.
@@ -27,13 +23,18 @@ In a separate terminal, run the following commands to create SQL tables and popu
 Option 1: Using Sample Data (For Testing Only)
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
-mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
+mysql -u root -p -h 127.0.0.1 < sql/sample-data.sql
 ```
 
 Option 2: Using provided production data (small subset)
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
+```
+
+To run the sample sql commends, run
+```bash
+mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 ```
 
 Option 3: Using full Toronto Assault Open Dataset (warning: large dataset)
