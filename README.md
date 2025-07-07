@@ -36,7 +36,7 @@ mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
 ```
 
-Option 3: Using full Toronto Assault Open Dataset
+Option 3: Using full Toronto Assault Open Dataset (warning: large dataset)
 1. Go to [https://data.torontopolice.on.ca/datasets/b4d0398d37eb4aa184065ed625ddb922_0/explore](url)
 2. Click Download > CSV
 3. Save the file as assault.csv in project root
