@@ -21,15 +21,40 @@ MYSQL_USER=root
 MYSQL_PASSWORD=""
 MYSQL_DATABASE=cs348
 
-## Run SQL
+## Running Database
+In a separate terminal, run the following commands to create SQL tables and populate with data.
 
-In a separate terminal, run the following commands to create SQL tables and populate with data. Use "sql/sample-data.sql" to populate with the sample data instead. 
+Option 1: Using Sample Data (For Testing Only)
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
-mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 ```
 
-Launch the following url: http://localhost:3000
+Option 2: Using provided production data (small subset)
+```bash
+mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
+mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
+```
 
-The sql in the root folder is for marking. It has the aggregated test-sample files and sql files. The sql in the src folder is seperated (but has the same code), and is used for our api routes.
+Option 3: Using full Toronto Assault Open Dataset
+1. Go to [https://data.torontopolice.on.ca/datasets/b4d0398d37eb4aa184065ed625ddb922_0/explore](url)
+2. Click Download > CSV
+3. Save the file as assault.csv in project root
+4. Then run this script
+```bash
+python scripts/full_dataset.py --file assault.csv --user root
+```
+
+## Running frontend
+Once the database is ready, start the frontend by openning
+```bash
+http://localhost:3000
+```
+
+**Note: The sql in the root folder is for marking. It has the aggregated test-sample files and sql files. The sql in the src folder is seperated (but has the same code), and is used for our api routes.
+
+
+
+
+
+
