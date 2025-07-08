@@ -1,0 +1,79 @@
+report_id	occurred_at	neighborhood	location_name	source
+7f275747-288d-4663-bfa8-9a650a940970	2025-03-31	Harbourfront-CityPlace (165)	Outside	user
+f103437b-72c3-4d4c-aa7c-b1d59b65b04e	2025-03-31	Malvern West (145)	Outside	user
+0a3cc418-b92d-4566-83f0-1b5a0704816f	2025-03-31	Pelmo Park-Humberlea (23)	House	user
+103ea2ee-fbb6-4cda-a358-193d1268df4e	2025-03-31	Cabbagetown-South St.James Town (71)	Outside	user
+120f21e7-9e62-4f9c-aa0c-e66b8c9fc78e	2025-03-31	Milliken (130)	House	user
+dd24ef43-7a45-4cd9-8679-e9224b224a64	2025-03-31	Old East York (58)	Apartment	user
+142625cb-ce28-49d5-b60d-138242480949	2025-03-31	Lansing-Westgate (38)	Apartment	user
+35021fd6-4ea9-45cd-89b5-a0bfd9d77041	2025-03-31	Banbury-Don Mills (42)	Outside	user
+35cd5f2e-0b1e-424c-aa71-aa9e2e80a1a5	2025-03-31	Dufferin Grove (83)	Commercial	user
+37e16480-04d2-4652-8b12-9d91eeb0f8ca	2025-03-31	Clairlea-Birchmount (120)	Other	user
+report_id	occurred_at	neighborhood	location_name	source
+06f58eeb-fddc-4cf3-8959-dc01983dbbda	2025-03-28	Moss Park (73)	Apartment	police
+09681869-60d7-4bb0-aed3-46b8a20ba3a4	2025-03-28	St.Andrew-Windfields (40)	Apartment	police
+0b640287-4c33-4564-8cec-77528232ccc3	2025-03-28	Banbury-Don Mills (42)	Apartment	police
+0b723289-7704-4269-b6ad-3962ab1c1135	2025-03-28	East End-Danforth (62)	Apartment	police
+111de74d-f6a1-46f0-9277-9982d8fb5ebd	2025-03-28	St.Andrew-Windfields (40)	Commercial	police
+174eb388-a2aa-444e-9d97-74c38829b268	2025-03-28	Stonegate-Queensway (16)	House	police
+19fa3487-3c4c-4c6a-9cfe-be292db5a94a	2025-03-28	Wexford/Maryvale (119)	Educational	police
+274379ab-6c40-4c44-b949-856fd9234e17	2025-03-28	Harbourfront-CityPlace (165)	Other	police
+2f6f09eb-59c5-4661-9c06-e768c220f8b4	2025-03-28	Henry Farm (53)	Apartment	police
+2fc29a5e-89e3-4ac9-832c-a21515a264f5	2025-03-28	Oakdale-Beverley Heights (154)	Outside	police
+report_id	occurred_at	location_name	source
+6ee3d5d6-4bb7-44b1-8552-5f962333171d	2025-03-31	Old East York (58)	user
+0a3cc418-b92d-4566-83f0-1b5a0704816f	2025-03-31	Pelmo Park-Humberlea (23)	user
+103ea2ee-fbb6-4cda-a358-193d1268df4e	2025-03-31	Cabbagetown-South St.James Town (71)	user
+120f21e7-9e62-4f9c-aa0c-e66b8c9fc78e	2025-03-31	Milliken (130)	user
+610268ec-f087-4be5-b237-ef7072f18214	2025-03-31	Wexford/Maryvale (119)	user
+142625cb-ce28-49d5-b60d-138242480949	2025-03-31	Lansing-Westgate (38)	user
+35021fd6-4ea9-45cd-89b5-a0bfd9d77041	2025-03-31	Banbury-Don Mills (42)	user
+35cd5f2e-0b1e-424c-aa71-aa9e2e80a1a5	2025-03-31	Dufferin Grove (83)	user
+37e16480-04d2-4652-8b12-9d91eeb0f8ca	2025-03-31	Clairlea-Birchmount (120)	user
+5a344107-ddd4-4ae8-9085-c9108c924a0d	2025-03-31	Regent Park (72)	user
+report_id	occured_at	location_name	type_id	source
+027c5cba-5a97-48e3-8e0e-a575f25d67ad	2025-03-27	Mount Olive-Silverstone-Jamestown (2)	Assault With Weapon	police
+0b723289-7704-4269-b6ad-3962ab1c1135	2025-03-28	East End-Danforth (62)	Assault With Weapon	police
+1201f0f5-0a6c-49d8-8f3b-097d6e5eccfd	2025-03-27	Yonge-Bay Corridor (170)	Assault With Weapon	police
+19fa3487-3c4c-4c6a-9cfe-be292db5a94a	2025-03-28	Wexford/Maryvale (119)	Assault With Weapon	police
+3c49a1fd-839f-4f59-acd3-4603184db262	2025-03-28	Regent Park (72)	Assault With Weapon	police
+3e914858-2bbf-43ce-8b44-564fea7b5b0f	2025-03-28	Mount Pleasant East (99)	Assault With Weapon	police
+4327c215-ff58-4df9-9d05-ff69b86efd1b	2025-03-27	Kennedy Park (124)	Assault With Weapon	police
+47245245-cff0-4e83-8aca-26f519c4a90d	2025-03-27	Regent Park (72)	Assault With Weapon	police
+5613a867-ac51-4943-9183-cfd3ae43f855	2025-03-27	Weston-Pelham Park (91)	Assault With Weapon	police
+589a5576-b0b5-4108-b993-c11c8ff01035	2025-03-27	Kennedy Park (124)	Assault With Weapon	police
+report_id	occured_at	location_name	type_id
+f4b61485-413c-4322-b736-f5d439b1e896	2025-03-28	Downtown Yonge East (168)	Administering Noxious Thing
+07e3190a-6d13-4f57-bec4-f0ef1fd0b5bc	2025-03-30	South Riverdale (70)	Aggravated Assault
+35021fd6-4ea9-45cd-89b5-a0bfd9d77041	2025-03-31	Banbury-Don Mills (42)	Aggravated Assault
+354b850a-8e20-409d-9c96-adcdfea2208f	2025-03-28	Harbourfront-CityPlace (165)	Aggravated Assault
+06369ec4-4205-474e-9c08-bd8998dd71ab	2025-03-30	Birchcliffe-Cliffside (122)	Assault
+0a3cc418-b92d-4566-83f0-1b5a0704816f	2025-03-31	Pelmo Park-Humberlea (23)	Assault
+f70d59c5-e52d-4bb8-9a0a-d15d9cb4ff47	2020-07-01	Old East York (58)	Assault
+120f21e7-9e62-4f9c-aa0c-e66b8c9fc78e	2025-03-31	Milliken (130)	Assault
+142625cb-ce28-49d5-b60d-138242480949	2025-03-31	Lansing-Westgate (38)	Assault
+52189107-f4c0-4d84-b298-3b49ac22b983	2025-03-30	Banbury-Don Mills (42)	Assault
+worstNbhd
+Mimico-Queensway (160)
+Banbury-Don Mills (42)
+Harbourfront-CityPlace (165)
+Kennedy Park (124)
+York University Heights (27)
+Yonge-Bay Corridor (170)
+Annex (95)
+Wexford/Maryvale (119)
+Mount Olive-Silverstone-Jamestown (2)
+East End-Danforth (62)
+lat_bin	long_bin	occurrences
+43.72	-79.27	4
+43.75	-79.59	2
+43.65	-79.38	3
+43.75	-79.39	1
+43.74	-79.52	2
+43.71	-79.36	1
+43.68	-79.31	2
+43.74	-79.41	1
+43.65	-79.39	6
+43.77	-79.22	1
+total_incidents	avg_distance	assault_types	neighborhoods	premise_types	police_reports	user_reports	risk_score	risk_level
+4	0.32652168627248107	Administering Noxious Thing,Assault,Assault Bodily Harm,Assault With Weapon	Downtown Yonge East (168),Yonge-Bay Corridor (170)	Streets, Roads, Highways (Bicycle Path, Private Road),Ttc Subway Station	4	0	6.60	MEDIUM
