@@ -69,6 +69,9 @@ Explore the interactive map of user and police reports, with an additional heatm
 
 <img width="1512" alt="Screenshot 2025-07-06 at 8 54 35 PM" src="https://github.com/user-attachments/assets/34d00a01-3612-404c-bf92-4c6d961b4573" />
 
+## Running Route Safety Analysis
+A google maps API key is needed, one can be found under the 'fancy feature 1' section on the submitted document. 
+
 Video Demo:
 [https://drive.google.com/file/d/1hFFNzDAC22F8YC53K_b5FugYyKVV5JJO/view?usp=sharing](url)
 [https://drive.google.com/file/d/1DS6k9SLtl63e19dSHxr1juz9pB5GSpfK/view?usp=sharing](route safety feature)
