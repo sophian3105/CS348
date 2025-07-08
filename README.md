@@ -6,7 +6,7 @@
 - Assault type (R9): Sort by assault type
 - Worst Neighborhoods (R10): Top 3 neighborhoods by combined police/user reports.
 - User interface allowing users to perform the 5 features above
-- Fancy feature 1 (R11):
+- Fancy feature 1 (R11): Route safety analysis that analyzes the walking path between two locations in Toronto and determines safety and risk level
 - Fancy feature 2 (R12): Interactive map that shows the police and user reports in Toronto with heatmaps of areas with a lot of crimes. Underlying sql puts crimes in bins based on coordinates.
 
 ## Getting Started
@@ -71,6 +71,8 @@ Explore the interactive map of user and police reports, with an additional heatm
 
 Video Demo:
 [https://drive.google.com/file/d/1hFFNzDAC22F8YC53K_b5FugYyKVV5JJO/view?usp=sharing](url)
+[https://drive.google.com/file/d/1DS6k9SLtl63e19dSHxr1juz9pB5GSpfK/view?usp=sharing](route safety feature)
+
 
 
 

@@ -1,34 +1,37 @@
-report_id       occurred_at     neighborhood    location_name   source
-2d88760e-5a06-11f0-b6ff-beba6ae33662    2025-06-08      Kensington Market       Sidewalk        user
-2d88726c-5a06-11f0-b6ff-beba6ae33662    2025-06-07      Kensington Market       Sidewalk        user
-2d886894-5a06-11f0-b6ff-beba6ae33662    2025-06-05      Kensington Market       Sidewalk        user
-2d886e8e-5a06-11f0-b6ff-beba6ae33662    2025-06-03      Brampton        Park    user
-report_id       occurred_at     neighborhood    location_name   source
-2d881a4c-5a06-11f0-b6ff-beba6ae33662    2025-05-10      Entertainment District  Street  police
-2d881f6a-5a06-11f0-b6ff-beba6ae33662    2025-04-20      Brampton        Transit Station police
-report_id       occurred_at     location_name   source
-2d88760e-5a06-11f0-b6ff-beba6ae33662    2025-06-08      Kensington Market       user
-2d88726c-5a06-11f0-b6ff-beba6ae33662    2025-06-07      Kensington Market       user
-2d886894-5a06-11f0-b6ff-beba6ae33662    2025-06-05      Kensington Market       user
-2d886e8e-5a06-11f0-b6ff-beba6ae33662    2025-06-03      Brampton        user
-2d881a4c-5a06-11f0-b6ff-beba6ae33662    2025-05-10      Entertainment District  police
-2d881f6a-5a06-11f0-b6ff-beba6ae33662    2025-04-20      Brampton        police
-report_id       occured_at      location_name   type_id source
-2d881f6a-5a06-11f0-b6ff-beba6ae33662    2025-04-20      Brampton        Theft in Brampton       police
-2d886e8e-5a06-11f0-b6ff-beba6ae33662    2025-06-03      Brampton        Brampton Robbery        user
-report_id       occured_at      location_name   type_id
-2d886e8e-5a06-11f0-b6ff-beba6ae33662    2025-06-03      Brampton        Brampton Robbery
-2d88726c-5a06-11f0-b6ff-beba6ae33662    2025-06-07      Kensington Market       Physical Assault
-2d881a4c-5a06-11f0-b6ff-beba6ae33662    2025-05-10      Entertainment District  Physical Assault
-2d881f6a-5a06-11f0-b6ff-beba6ae33662    2025-04-20      Brampton        Theft in Brampton
-2d886894-5a06-11f0-b6ff-beba6ae33662    2025-06-05      Kensington Market       Verbal Harassment
-2d88760e-5a06-11f0-b6ff-beba6ae33662    2025-06-08      Kensington Market       Verbal Harassment
+report_id	occurred_at	neighborhood	location_name	source
+1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	Sidewalk	user
+1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	Sidewalk	user
+1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	Sidewalk	user
+1fa59a42-5bc5-11f0-bc4a-235029dcd79f	2025-06-03	Brampton	Park	user
+report_id	occurred_at	neighborhood	location_name	source
+1fa53d2c-5bc5-11f0-bc4a-235029dcd79f	2025-05-10	Entertainment District	Street	police
+1fa541be-5bc5-11f0-bc4a-235029dcd79f	2025-04-20	Brampton	Transit Station	police
+report_id	occurred_at	location_name	source
+1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	user
+1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	user
+1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	user
+1fa59a42-5bc5-11f0-bc4a-235029dcd79f	2025-06-03	Brampton	user
+1fa53d2c-5bc5-11f0-bc4a-235029dcd79f	2025-05-10	Entertainment District	police
+1fa541be-5bc5-11f0-bc4a-235029dcd79f	2025-04-20	Brampton	police
+report_id	occured_at	location_name	type_id	source
+1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	Verbal Harassment	user
+1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	Physical Assault	user
+1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	Verbal Harassment	user
+report_id	occured_at	location_name	type_id
+1fa59a42-5bc5-11f0-bc4a-235029dcd79f	2025-06-03	Brampton	Brampton Robbery
+1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	Physical Assault
+1fa53d2c-5bc5-11f0-bc4a-235029dcd79f	2025-05-10	Entertainment District	Physical Assault
+1fa541be-5bc5-11f0-bc4a-235029dcd79f	2025-04-20	Brampton	Theft in Brampton
+1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	Verbal Harassment
+1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	Verbal Harassment
 worstNbhd
 Kensington Market
 Brampton
 Entertainment District
-lat_bin long_bin        occurrences
-43.65   -79.38  1
-43.65   -79.41  1
-43.7    -79.75  1
-43.66   -79.41  2
+lat_bin	long_bin	occurrences
+43.65	-79.38	1
+43.65	-79.41	1
+43.7	-79.75	1
+43.66	-79.41	2
+total_incidents	avg_distance	assault_types	neighborhoods	premise_types	police_reports	user_reports	risk_score	risk_level
+1	0.4391895889377027	Physical Assault	Entertainment District	Public	1	0	1.65	LOW
