@@ -10,7 +10,7 @@
 - Fancy feature 2 (R12): Interactive map that shows the police and user reports in Toronto with heatmaps of areas with a lot of crimes. Underlying sql puts crimes in bins based on coordinates.
 
 ## Getting Started
-First, make sure to download all the node modules and start the development server
+First, make sure to download all the node modules and start the development server. Make sure to populate the env file with google maps APIs and your mySQL credentials.
 ```bash
 npm install
 npm run dev
