@@ -12,7 +12,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/dashboard", label: "Dashboard" },
     { href: "/report", label: "Report" },
-    { href: "/analyze-route", label: "Analyze Route" },
+    { href: "/analyze-route", label: "Analyze Location" },
   ]
 
   const analyticsLinks = [
