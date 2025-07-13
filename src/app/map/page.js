@@ -1,5 +1,8 @@
-"use client";
-import Map from "../../components/map";
+'use client';
+import dynamic from "next/dynamic";
+
+// Disable SSR for the Map component (client-side only)
+const Map = dynamic(() => import("../../components/map"), { ssr: false });
 import { useState } from "react";
 
 export default function MapPage() {
