@@ -250,24 +250,46 @@ export default function Map({ scale, numdays, showHeatmap }) {
     radius={sel.radius}
     pathOptions={{ color: "orange" }}
   >
-    <Popup>
-      <div className="space-y-1">
-        <h3 className="font-bold">
-          {sel.reports.length} report{sel.reports.length!==1 && "s"} inside
-        </h3>
-        <ul className="text-sm max-h-40 overflow-auto list-disc list-inside">
-          {sel.reports.length > 0
-            ? sel.reports.map(r => (
-                <li key={r.r_id}>
-                  {r.r_id.slice(0,8)} —{" "}
+    <Popup maxWidth={500}>
+  <div className="space-y-1">
+    <h3 className="font-bold text-lg mb-4">
+      {sel.reports.length} report{sel.reports.length !== 1 && "s"} inside
+    </h3>
+    <div className="overflow-auto max-h-40">
+      <table className="table-auto w-full text-sm">
+        <thead className="bg-orange-200">
+          <tr>
+            <th className="px-2 py-1 text-left font-medium">ID</th>
+            <th className="px-2 py-1 text-left font-medium">Occurred</th>
+            <th className="px-2 py-1 text-left font-medium">Location</th>
+            <th className="px-2 py-1 text-left font-medium">Neighborhood</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sel.reports.length > 0 ? (
+            sel.reports.map((r) => (
+              <tr key={r.r_id} className="hover:bg-gray-50">
+                <td className="px-2 py-1">{r.r_id.slice(0, 8)}</td>
+                <td className="px-2 py-1">
                   {new Date(r.occurence_date).toLocaleDateString()}
-                </li>
-              ))
-            : <li>No reports found</li>
-          }
-        </ul>
-      </div>
-    </Popup>
+                </td>
+                <td className="px-2 py-1 capitalize">{r.location_type}</td>
+                <td className="px-2 py-1">{r.neighborhood}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={4} className="px-2 py-1 text-center">
+                No reports found
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Popup>
+
   </Circle>
 ))}
 
