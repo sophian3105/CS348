@@ -1,16 +1,98 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import React, { useEffect, useState, useCallback } from "react";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { Marker } from "react-leaflet";
 import { Popup } from "react-leaflet";
 import { Circle } from "react-leaflet";
+import L from "leaflet";
+import "leaflet-draw/dist/leaflet.draw.css";
+import "leaflet-draw";
+
+function DrawControl({ onCircle, onModeChange }) {
+    const map = useMap();
+    useEffect(() => {
+      const drawnItems = new L.FeatureGroup();
+      map.addLayer(drawnItems);
+  
+      const drawControl = new L.Control.Draw({
+        draw: {
+          polygon: false,
+          polyline: false,
+          rectangle: false,
+          marker: false,
+          circlemarker: false,
+          circle: {
+            shapeOptions: { color: "#ff7800", weight: 2 }
+          }
+        },
+        edit: {
+            featureGroup: drawnItems,
+            edit: true,
+            remove: true
+          }
+      });
+      map.addControl(drawControl);
+      map.on(L.Draw.Event.EDITSTART,   () => onModeChange("edit"));
+    map.on(L.Draw.Event.EDITSTOP,    () => onModeChange("none"));
+     map.on(L.Draw.Event.DELETESTART, () => onModeChange("delete"));
+     map.on(L.Draw.Event.DELETESTOP,  () => onModeChange("none"));
+  
+      map.on(L.Draw.Event.CREATED, (e) => {
+        const layer = e.layer;
+        layer.options.interactive = true;
+        drawnItems.addLayer(layer);
+         onCircle({
+               id: layer._leaflet_id,           // ← unique per circle
+               center: layer.getLatLng(),
+               radius: layer.getRadius(),
+             });
+      });
+      map.on(L.Draw.Event.EDITED, e => {
+        e.layers.eachLayer(layer => {
+          const { lat, lng } = layer.getLatLng();
+          const r = layer.getRadius();
+          onCircle({
+               id: layer._leaflet_id,
+               center: layer.getLatLng(),
+               radius: layer.getRadius(),
+             });
+        });
+      });
+      map.on(L.Draw.Event.DELETED, (e) => {
+        e.layers.eachLayer(layer => {
+            const { lat, lng } = layer.getLatLng();
+            const r = layer.getRadius();
+            onCircle({
+                   deleted: {
+                     id: layer._leaflet_id,
+                     center: { lat, lng },
+                     radius: r,
+                   },
+                 });
+          });
+      });
+  
+      return () => {
+        map.removeControl(drawControl);
+        map.off(L.Draw.Event.DELETED);
++      map.off(L.Draw.Event.EDITSTART);
++      map.off(L.Draw.Event.EDITSTOP);
++      map.off(L.Draw.Event.DELETESTART);
++      map.off(L.Draw.Event.DELETESTOP)
+      };
+    }, [map,onModeChange]);
+    return null;
+  }  
 
 export default function Map({ scale, numdays, showHeatmap }) {
   const [reports, setReports] = useState([]);
   const [heatMap, setHeatMap] = useState([]);
 
   const [loading, setLoading] = useState(true);
+
+  const [selections, setSelections] = useState([]);
+  const [drawMode,   setDrawMode]   = useState("none");
 
   const greenIcon = new L.Icon({
     iconUrl:
@@ -52,6 +134,32 @@ export default function Map({ scale, numdays, showHeatmap }) {
       .finally(() => setLoading(false));
   }, []);
 
+  
+  const handleCircle = useCallback(async (payload) => {
+        if (payload.deleted) {
+            const { id } = payload.deleted;
+                setSelections((sels) => sels.filter((sel) => sel.id !== id));
+           return;
+         }
+         const { id, center, radius } = payload;
+    const res = await fetch(
+      `/api/within?lat=${center.lat}&lng=${center.lng}&radiusKm=${(
+        radius / 1000
+      ).toFixed(3)}`
+    );
+     const { rows } = await res.json();
+     setSelections((sels) => {
+            const idx = sels.findIndex((sel) => sel.id === id);
+            if (idx !== -1) {
+              const next = [...sels];
+              next[idx] = { ...next[idx], center, radius, reports: rows };
+              return next;
+            }
+            return [...sels, { id, center, radius, reports: rows }];
+          });
+    }, []);
+    
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -75,7 +183,7 @@ export default function Map({ scale, numdays, showHeatmap }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-
+      <DrawControl onCircle={handleCircle} onModeChange={setDrawMode} />
       {showHeatmap &&
         heatMap.map((h, idx) => {
           const opacity = Math.min(h.occurrences / maxCount, 1) * 0.5;
@@ -135,6 +243,34 @@ export default function Map({ scale, numdays, showHeatmap }) {
           </Popup>
         </Marker>
       ))}
+      {drawMode === "none" && selections.map((sel, i) => (
+  <Circle
+    key={i}
+    center={[sel.center.lat, sel.center.lng]}
+    radius={sel.radius}
+    pathOptions={{ color: "orange" }}
+  >
+    <Popup>
+      <div className="space-y-1">
+        <h3 className="font-bold">
+          {sel.reports.length} report{sel.reports.length!==1 && "s"} inside
+        </h3>
+        <ul className="text-sm max-h-40 overflow-auto list-disc list-inside">
+          {sel.reports.length > 0
+            ? sel.reports.map(r => (
+                <li key={r.r_id}>
+                  {r.r_id.slice(0,8)} —{" "}
+                  {new Date(r.occurence_date).toLocaleDateString()}
+                </li>
+              ))
+            : <li>No reports found</li>
+          }
+        </ul>
+      </div>
+    </Popup>
+  </Circle>
+))}
+
     </MapContainer>
   );
 }
