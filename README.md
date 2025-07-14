@@ -2,7 +2,7 @@
 - Loaded a production dataset, file found in src/dataprod.sql
 - Filter by Source (R6a/R6b): View only user-submitted or police-reported assaults.
 - Unified Timeline (R7): All reports ordered by occurrence date.
-- Keyword Search (R8): Search across assault types and neighborhoods
+- Keyword Search (R8): Search across assault/location/premise types, neighbourhood, and report id. 
 - Assault type (R9): Sort by assault type
 - Worst Neighborhoods (R10): Top 3 neighborhoods by combined police/user reports.
 - User interface allowing users to perform the 5 features above
