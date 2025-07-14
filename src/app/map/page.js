@@ -13,7 +13,8 @@ export default function MapPage() {
   const [tempScale, setTempScale] = useState(scale);
   const [tempDays, setTempDays] = useState(days);
   const [show, setShow] = useState(showHeatmap);
-  const [showMarker, setShowMarker] = useState(true);
+  const [showPolice, setShowPolice] = useState(true);
+  const [showUser, setShowUser] = useState(true);
 
   const applySettings = () => {
     setScale(tempScale);
@@ -28,23 +29,35 @@ export default function MapPage() {
         scale={scale}
         numdays={days}
         showHeatmap={showHeatmap}
-        showMarkers={showMarker}
+        showPolice={showPolice}
+        showUser={showUser}
       />
 
       <div className="absolute bottom-4 right-4 z-999 flex flex-col gap-2 max-w-xs">
-        <button
-          onClick={() => setShowMarker(!showMarker)}
-          className={`
-    px-4 py-2 font-semibold rounded-lg shadow-md transition-colors duration-200
-    ${
-      showMarker
-        ? "bg-red-500 hover:bg-red-600 text-white"
-        : "bg-green-500 hover:bg-green-600 text-white"
-    }
-  `}
-        >
-          {showMarker ? "Hide Markers" : "Show Markers"}
-        </button>{" "}
+        <div className="flex gap-2">
+          <button
+            onClick={() => setShowPolice((v) => !v)}
+            className={`px-4 py-2 font-semibold rounded-lg shadow-md transition-colors duration-200 text-white w-1/2 ${
+              showPolice
+                ? "bg-red-500 hover:bg-red-600"
+                : "bg-green-500 hover:bg-green-600"
+            }`}
+          >
+            {showPolice ? "Hide Police" : "Show Police"}
+          </button>
+
+          <button
+            onClick={() => setShowUser((v) => !v)}
+            className={`px-4 py-2 font-semibold rounded-lg shadow-md transition-colors duration-200 w-1/2 text-white ${
+              showUser
+                ? "bg-red-500 hover:bg-red-600"
+                : "bg-green-500 hover:bg-green-600"
+            }`}
+          >
+            {showUser ? "Hide Users" : "Show Users"}
+          </button>
+        </div>
+
         <div className="bg-white rounded-lg shadow-md p-2">
           <h1 className="text-xl font-semibold text-gray-800">
             Toronto Crime Reports Map

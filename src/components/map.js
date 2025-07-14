@@ -85,7 +85,13 @@ function DrawControl({ onCircle, onModeChange }) {
   return null;
 }
 
-export default function Map({ scale, numdays, showHeatmap, showMarkers }) {
+export default function Map({
+  scale,
+  numdays,
+  showHeatmap,
+  showPolice,
+  showUser,
+}) {
   const [reports, setReports] = useState([]);
   const [heatMap, setHeatMap] = useState([]);
 
@@ -201,48 +207,54 @@ export default function Map({ scale, numdays, showHeatmap, showMarkers }) {
           );
         })}
 
-      {showMarkers
-        ? reports.map((r) => (
-            <Marker
-              key={r.r_id}
-              position={[r.latitude, r.longitude]}
-              icon={r.reporter_type === "user" ? greenIcon : blueIcon}
+{reports
+  .filter(r =>
+    (r.reporter_type === "police" && showPolice) ||
+    (r.reporter_type === "user"   && showUser)
+  )
+  .map(r => {
+    const isUser = r.reporter_type === "user";
+    const color  = isUser ? "green" : "blue";
+    const icon   = isUser ? greenIcon : blueIcon;
+
+    return (
+      <Marker
+        key={r.r_id}
+        position={[r.latitude, r.longitude]}
+        icon={icon}
+      >
+        <Popup>
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-bold truncate">
+              {r.r_id.slice(0, 8)}
+            </h3>
+            <span
+              className={`
+                px-2 py-0.5 text-xs font-semibold rounded
+                bg-${color}-100 text-${color}-800
+              `}
             >
-              <Popup>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold truncate">
-                    {r.r_id.slice(0, 8)}
-                  </h3>
-                  <span
-                    className={`
-                  px-2 py-0.5 text-xs font-semibold rounded 
-                  ${
-                    r.reporter_type === "user"
-                      ? "bg-green-100 text-green-800"
-                      : "bg-blue-100 text-blue-800"
-                  }
-                `}
-                  >
-                    {r.reporter_type.toUpperCase()}
-                  </span>
-                </div>
-                <div className="text-sm text-gray-700 space-y-1">
-                  <p>
-                    <strong>Occurred:</strong>{" "}
-                    {new Date(r.occurence_date).toLocaleDateString()}
-                  </p>
-                  <p>
-                    <strong>Neighborhood:</strong> {r.neighborhood}
-                  </p>
-                  <p>
-                    <strong>Location:</strong>{" "}
-                    <span className="capitalize">{r.location_type}</span>
-                  </p>
-                </div>
-              </Popup>
-            </Marker>
-          ))
-        : null}
+              {r.reporter_type.toUpperCase()}
+            </span>
+          </div>
+          <div className="text-sm text-gray-700 space-y-1">
+            <p>
+              <strong>Occurred:</strong>{" "}
+              {new Date(r.occurence_date).toLocaleDateString()}
+            </p>
+            <p>
+              <strong>Neighborhood:</strong> {r.neighborhood}
+            </p>
+            <p>
+              <strong>Location:</strong>{" "}
+              <span className="capitalize">{r.location_type}</span>
+            </p>
+          </div>
+        </Popup>
+      </Marker>
+    );
+  })}
+
 
       {drawMode === "none" &&
         selections.map((sel, i) => (
