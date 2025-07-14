@@ -148,7 +148,6 @@ export default function ReportForm() {
   }
 
   const handleSubmit = async (e) => {
-    console.log("formData:", formData)
     e.preventDefault()
     setIsSubmitting(true)
     
@@ -162,8 +161,6 @@ export default function ReportForm() {
       })
 
       const result = await response.json()
-
-      console.log("API Response:", result)
 
       if (!response.ok) {
         throw new Error(result.error || 'Failed to submit report')
@@ -184,7 +181,7 @@ export default function ReportForm() {
           description: "",
           reporter_email: "",
         })
-      }, 100)
+      }, 3000)
     } catch (error) {
       console.error('Error submitting report:', error)
       alert('Failed to submit report. Please try again.')
