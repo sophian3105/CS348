@@ -15,7 +15,7 @@ export default function ReportsBySource() {
     const endpoint =
       reportType === 'police'
         ? '/api/policeReport'
-        : '/api/userReport'
+        : '/api/userReport/request'
 
     fetch(endpoint)
       .then(res => {
