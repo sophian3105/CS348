@@ -203,7 +203,9 @@ export default function Map({ scale, numdays, showHeatmap }) {
           );
         })}
 
-      {reports.map((r) => (
+      {reports
+        .filter((r) => r.latitude != null && r.longitude != null && !isNaN(r.latitude) && !isNaN(r.longitude))
+        .map((r) => (
         <Marker
           key={r.r_id}
           position={[r.latitude, r.longitude]}
