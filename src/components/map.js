@@ -76,10 +76,10 @@ function DrawControl({ onCircle, onModeChange }) {
       return () => {
         map.removeControl(drawControl);
         map.off(L.Draw.Event.DELETED);
-+      map.off(L.Draw.Event.EDITSTART);
-+      map.off(L.Draw.Event.EDITSTOP);
-+      map.off(L.Draw.Event.DELETESTART);
-+      map.off(L.Draw.Event.DELETESTOP)
+      map.off(L.Draw.Event.EDITSTART);
+      map.off(L.Draw.Event.EDITSTOP);
+      map.off(L.Draw.Event.DELETESTART);
+      map.off(L.Draw.Event.DELETESTOP)
       };
     }, [map,onModeChange]);
     return null;
