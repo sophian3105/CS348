@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import dynamic from "next/dynamic";
 
 // Disable SSR for the Map component (client-side only)
@@ -13,24 +13,43 @@ export default function MapPage() {
   const [tempScale, setTempScale] = useState(scale);
   const [tempDays, setTempDays] = useState(days);
   const [show, setShow] = useState(showHeatmap);
+  const [showMarker, setShowMarker] = useState(true);
 
   const applySettings = () => {
     setScale(tempScale);
     setDays(tempDays);
-    setShowHeapmap(show)
+    setShowHeapmap(show);
   };
 
   return (
     <main className="relative w-full h-[calc(100vh-64px)]">
-      <Map className="z-0" scale={scale} numdays={days} showHeatmap={showHeatmap} />
+      <Map
+        className="z-0"
+        scale={scale}
+        numdays={days}
+        showHeatmap={showHeatmap}
+        showMarkers={showMarker}
+      />
 
       <div className="absolute bottom-4 right-4 z-999 flex flex-col gap-2 max-w-xs">
+        <button
+          onClick={() => setShowMarker(!showMarker)}
+          className={`
+    px-4 py-2 font-semibold rounded-lg shadow-md transition-colors duration-200
+    ${
+      showMarker
+        ? "bg-red-500 hover:bg-red-600 text-white"
+        : "bg-green-500 hover:bg-green-600 text-white"
+    }
+  `}
+        >
+          {showMarker ? "Hide Markers" : "Show Markers"}
+        </button>{" "}
         <div className="bg-white rounded-lg shadow-md p-2">
           <h1 className="text-xl font-semibold text-gray-800">
             Toronto Crime Reports Map
           </h1>
         </div>
-
         <div className="bg-white rounded-lg shadow-md p-3 space-y-2">
           <h2 className="text-base font-medium text-gray-800">
             Heatmap Settings
