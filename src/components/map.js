@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { Marker } from "react-leaflet";
 import { Popup } from "react-leaflet";
 import { Circle } from "react-leaflet";
+import { Search } from "lucide-react";
 import L from "leaflet";
 import "leaflet-draw/dist/leaflet.draw.css";
 import "leaflet-draw";
@@ -93,6 +94,10 @@ export default function Map({
   showUser,
 }) {
   const [reports, setReports] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [keyword, setKeyword] = useState("weapon");
+  const [tempKey, setTempKey] = useState(keyword);
+
   const [heatMap, setHeatMap] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -122,6 +127,17 @@ export default function Map({
     shadowSize: [41, 41],
   });
 
+  const redIcon = new L.Icon({
+    iconUrl:
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+    shadowUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
   useEffect(() => {
     fetch(`/api/coordbins?scale=${scale}&numdays=${numdays}`)
       .then((res) => res.json())
@@ -139,6 +155,16 @@ export default function Map({
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    fetch(`/api/keywordMap?keyword=${keyword}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("fetched data:", data);
+        setSearchResults(data.rows);
+      })
+      .catch(console.error);
+  }, [keyword]);
 
   const handleCircle = useCallback(async (payload) => {
     if (payload.deleted) {
@@ -207,54 +233,97 @@ export default function Map({
           );
         })}
 
-{reports
-  .filter(r =>
-    (r.reporter_type === "police" && showPolice) ||
-    (r.reporter_type === "user"   && showUser)
-  )
-  .map(r => {
-    const isUser = r.reporter_type === "user";
-    const color  = isUser ? "green" : "blue";
-    const icon   = isUser ? greenIcon : blueIcon;
+      {reports
+        .filter(
+          (r) =>
+            (r.reporter_type === "police" && showPolice) ||
+            (r.reporter_type === "user" && showUser)
+        )
+        .map((r) => {
+          const isUser = r.reporter_type === "user";
+          const color = isUser ? "green" : "blue";
+          const icon = isUser ? greenIcon : blueIcon;
 
-    return (
-      <Marker
-        key={r.r_id}
-        position={[r.latitude, r.longitude]}
-        icon={icon}
-      >
-        <Popup>
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold truncate">
-              {r.r_id.slice(0, 8)}
-            </h3>
-            <span
-              className={`
+          return (
+            <Marker
+              key={r.r_id}
+              position={[r.latitude, r.longitude]}
+              icon={icon}
+            >
+              <Popup>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold truncate">
+                    {r.r_id.slice(0, 8)}
+                  </h3>
+                  <span
+                    className={`
                 px-2 py-0.5 text-xs font-semibold rounded
                 bg-${color}-100 text-${color}-800
               `}
-            >
-              {r.reporter_type.toUpperCase()}
-            </span>
-          </div>
-          <div className="text-sm text-gray-700 space-y-1">
-            <p>
-              <strong>Occurred:</strong>{" "}
-              {new Date(r.occurence_date).toLocaleDateString()}
-            </p>
-            <p>
-              <strong>Neighborhood:</strong> {r.neighborhood}
-            </p>
-            <p>
-              <strong>Location:</strong>{" "}
-              <span className="capitalize">{r.location_type}</span>
-            </p>
-          </div>
-        </Popup>
-      </Marker>
-    );
-  })}
+                  >
+                    {r.reporter_type.toUpperCase()}
+                  </span>
+                </div>
+                <div className="text-sm text-gray-700 space-y-1">
+                  <p>
+                    <strong>Occurred:</strong>{" "}
+                    {new Date(r.occurence_date).toLocaleDateString()}
+                  </p>
+                  <p>
+                    <strong>Neighborhood:</strong> {r.neighborhood}
+                  </p>
+                  <p>
+                    <strong>Location:</strong>{" "}
+                    <span className="capitalize">{r.location_type}</span>
+                  </p>
+                </div>
+              </Popup>
+            </Marker>
+          );
+        })}
 
+      {searchResults.length > 0 &&
+        searchResults.map((r) => {
+          const isUser = r.reporter_type === "user";
+          const color = isUser ? "green" : "blue";
+
+          return (
+            <Marker
+              key={r.r_id}
+              position={[r.latitude, r.longitude]}
+              icon={redIcon}
+            >
+              <Popup>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold truncate">
+                    {r.r_id.slice(0, 8)}
+                  </h3>
+                  <span
+                    className={`
+                px-2 py-0.5 text-xs font-semibold rounded
+                bg-${color}-100 text-${color}-800
+              `}
+                  >
+                    {r.reporter_type.toUpperCase()}
+                  </span>
+                </div>
+                <div className="text-sm text-gray-700 space-y-1">
+                  <p>
+                    <strong>Occurred:</strong>{" "}
+                    {new Date(r.occurence_date).toLocaleDateString()}
+                  </p>
+                  <p>
+                    <strong>Neighborhood:</strong> {r.neighborhood}
+                  </p>
+                  <p>
+                    <strong>Location:</strong>{" "}
+                    <span className="capitalize">{r.location_type}</span>
+                  </p>
+                </div>
+              </Popup>
+            </Marker>
+          );
+        })}
 
       {drawMode === "none" &&
         selections.map((sel, i) => (
@@ -314,6 +383,23 @@ export default function Map({
             </Popup>
           </Circle>
         ))}
+      <div className="absolute top-4 w-[400px] px-4 z-999 left-10">
+        <div className="relative">
+          <input
+            type="text"
+            value={tempKey}
+            onChange={(e) => setTempKey(e.target.value)}
+            placeholder="Enter keyword…"
+            className="w-full rounded-full bg-white text-black pl-4 py-2 pr-8 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            onClick={() => setKeyword(tempKey)}
+            className="absolute inset-y-0 right-3 flex items-center justify-center text-gray-400 hover:text-blue-600"
+          >
+            <Search className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
     </MapContainer>
   );
 }
