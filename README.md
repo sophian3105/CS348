@@ -35,9 +35,10 @@ mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
 ```
 
-To run the sample sql commends, run
+To run the sample sql commands, run
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
+mysql -u root -p -h 127.0.0.1 < sql/setup.sql
 ```
 
 Option 3: Using full Toronto Assault Open Dataset (warning: large dataset)
