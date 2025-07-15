@@ -95,7 +95,7 @@ export default function Map({
 }) {
   const [reports, setReports] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [keyword, setKeyword] = useState("weapon");
+  const [keyword, setKeyword] = useState("");
   const [tempKey, setTempKey] = useState(keyword);
 
   const [heatMap, setHeatMap] = useState([]);
@@ -157,6 +157,7 @@ export default function Map({
   }, []);
 
   useEffect(() => {
+    if (keyword){
     fetch(`/api/keywordMap?keyword=${keyword}`)
       .then((res) => res.json())
       .then((data) => {
@@ -164,6 +165,7 @@ export default function Map({
         setSearchResults(data.rows);
       })
       .catch(console.error);
+    }
   }, [keyword]);
 
   const handleCircle = useCallback(async (payload) => {
