@@ -52,7 +52,7 @@ export default function Navbar() {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center gap-1 text-gray-700 font-medium py-2 px-3 rounded-md transition-colors duration-200 hover:text-blue-600 hover:bg-blue-50 focus:outline-none"
             >
-              📊 Analytics <span className="text-sm">▼</span>
+              📊 Table View <span className="text-sm">▼</span>
             </button>
 
             {dropdownOpen && (

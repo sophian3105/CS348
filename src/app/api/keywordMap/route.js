@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 export const runtime = "nodejs";
 
-const sqlPath = path.join(process.cwd(), "src", "sql", "keyword.sql");
+const sqlPath = path.join(process.cwd(), "src", "sql", "keywordMap.sql");
 const fileSql = await fs.readFile(sqlPath, "utf8");
 
 import { NextResponse } from "next/server";

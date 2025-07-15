@@ -1,10 +1,5 @@
--- R8a/R8b: Keyword search in assault_type or neighborhood
-SELECT 
-  pr.r_id AS report_id,
-  pr.occurence_date AS occured_at,
-  pl.neighborhood AS location_name,
-  pr.assault_type AS type_id,
-  'police' AS source
+-- R8a/R8b: Keyword search that returns all information for the map
+SELECT pl.r_id, pl.latitude, pl.longitude, pl.neighborhood, pl.location_type, 'police' AS reporter_type, pr.occurence_date
 FROM policeReports pr
 JOIN policeLocation pl ON pr.r_id = pl.r_id
 WHERE LOWER(pr.assault_type) LIKE LOWER(:keyword)
@@ -15,12 +10,7 @@ WHERE LOWER(pr.assault_type) LIKE LOWER(:keyword)
 
 UNION ALL
 
-SELECT 
-  ur.r_id AS report_id,
-  ur.occurence_date AS occured_at,
-  ul.neighborhood AS location_name,
-  ur.assault_type AS type_id,
-  'user' AS source
+SELECT ul.r_id, ul.latitude, ul.longitude, ul.neighborhood, ul.location_type, 'user' AS reporter_type, ur.occurence_date
 FROM userReports ur
 JOIN userLocation ul ON ur.r_id = ul.r_id
 WHERE LOWER(ur.assault_type) LIKE LOWER(:keyword)
