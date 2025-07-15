@@ -5,9 +5,12 @@
 - Keyword Search (R8): Search across assault/location/premise types, neighbourhood, and report id and display on a table and the map.
 - Assault type (R9): Sort by assault type
 - Worst Neighborhoods (R10): Top 3 neighborhoods by combined police/user reports.
-- User interface allowing users to perform the 5 features above
-- Fancy feature 1 (R11): Location safety analysis that analyzes the any location search in Toronto and determines safety and risk level
+- User interface allowing users to perform the 5 features above.
+- Fancy feature 1 (R11): Location safety analysis that analyzes the any location search in Toronto and determines safety and risk level.
 - Fancy feature 2 (R12): Interactive map that shows the police and user reports in Toronto with heatmaps of areas with a lot of crimes. Underlying sql puts crimes in bins based on coordinates.
+- Fancy feature 3 (R13): Allow users to submit their own reports.
+- Fancy feature 4 (R14): Find the closest police report to each user report.
+- Fancy feature 5 (R15): Outline any circular area on the interactive map and see every assault that occured inside it.
 
 ## Getting Started
 First, make sure to download all the node modules and start the development server. Make sure to populate the env file with google maps APIs and your mySQL credentials.
@@ -32,9 +35,10 @@ mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/prod-data.sql
 ```
 
-To run the sample sql commends, run
+To run the sample sql commands, run
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
+mysql -u root -p -h 127.0.0.1 < sql/setup.sql
 ```
 
 Option 3: Using full Toronto Assault Open Dataset (warning: large dataset)

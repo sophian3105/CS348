@@ -241,6 +241,7 @@ export default function Map({
             (r.reporter_type === "police" && showPolice) ||
             (r.reporter_type === "user" && showUser)
         )
+        .filter((r) => r.latitude != null && r.longitude != null && !isNaN(r.latitude) && !isNaN(r.longitude))
         .map((r) => {
           const isUser = r.reporter_type === "user";
           const color = isUser ? "green" : "blue";

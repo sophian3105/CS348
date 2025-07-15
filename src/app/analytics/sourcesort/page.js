@@ -15,7 +15,7 @@ export default function ReportsBySource() {
     const endpoint =
       reportType === 'police'
         ? '/api/policeReport'
-        : '/api/userReport'
+        : '/api/userReport/request'
 
     fetch(endpoint)
       .then(res => {
@@ -72,6 +72,12 @@ export default function ReportsBySource() {
                 <th className="border border-gray-300 px-4 py-2 text-left">Neighborhood</th>
                 <th className="border border-gray-300 px-4 py-2 text-left">Location Name</th>
                 <th className="border border-gray-300 px-4 py-2 text-left">Source</th>
+                {reportType === 'user' && (
+                  <>
+                  <th className="border border-gray-300 px-4 py-2 text-left">Nearest Police Report ID</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">Distance(km)</th>
+                  </>
+                )}
               </tr>
             </thead>
             <tbody>
@@ -94,6 +100,16 @@ export default function ReportsBySource() {
                   <td className="border border-gray-300 px-4 py-2 uppercase">
                     {r.source}
                   </td>
+                  {reportType === 'user' && (
+                    <>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {r.closest_police}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {Number(r.distance).toFixed(2)}
+                    </td>
+                    </>
+                  )}
                 </tr>
               ))}
             </tbody>

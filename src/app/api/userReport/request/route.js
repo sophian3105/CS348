@@ -1,4 +1,4 @@
-import db from '../../../lib/db'
+import db from '../../../../lib/db'
 import fs from 'fs/promises';
 import path from 'path';
 export const runtime = 'nodejs';
