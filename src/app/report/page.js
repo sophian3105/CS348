@@ -219,6 +219,8 @@ export default function ReportForm() {
       formData.incident_date &&
       formData.incident_time &&
       formData.neighbourhood &&
+      formData.latitude &&
+      formData.longitude &&
       formData.description.trim().length > 10 &&
       formData.reporter_email
     )
@@ -299,6 +301,7 @@ export default function ReportForm() {
                     onChange={(e) => handleInputChange("incident_date", e.target.value)}
                     className="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                     max={new Date().toISOString().split("T")[0]}
+                    required
                   />
                 </div>
               </div>
@@ -312,7 +315,8 @@ export default function ReportForm() {
                   type="time"
                   value={formData.incident_time}
                   onChange={(e) => handleInputChange("incident_time", e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 cursor-pointer"
+                  required
                 />
               </div>
             </div>
@@ -354,7 +358,7 @@ export default function ReportForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label htmlFor="latitude" className="block text-sm font-semibold text-gray-800">
-                  Latitude <span className="text-gray-400">(Optional)</span>
+                  Latitude <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -366,13 +370,14 @@ export default function ReportForm() {
                     value={formData.latitude}
                     onChange={(e) => handleInputChange("latitude", e.target.value)}
                     className="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                    required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="longitude" className="block text-sm font-semibold text-gray-800">
-                  Longitude <span className="text-gray-400">(Optional)</span>
+                  Longitude <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -384,6 +389,7 @@ export default function ReportForm() {
                     value={formData.longitude}
                     onChange={(e) => handleInputChange("longitude", e.target.value)}
                     className="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                    required
                   />
                 </div>
               </div>

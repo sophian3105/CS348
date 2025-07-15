@@ -18,7 +18,7 @@ export async function POST(request) {
       reporter_email
     } = body;
 
-    if (!assault_type || !incident_date || !incident_time || !neighbourhood || !description || !reporter_email) {
+    if (!assault_type || !incident_date || !incident_time || !neighbourhood || !latitude || !longitude || !description || !reporter_email) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -85,8 +85,8 @@ export async function POST(request) {
 
     await db.query(locationInsertQuery, [
       reportId,
-      longitude || null,
-      latitude || null,
+      longitude,
+      latitude,
       neighbourhoodName,
       premiseTypeName,
       premiseTypeName
