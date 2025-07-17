@@ -1,14 +1,13 @@
 "use client";
 import dynamic from "next/dynamic";
 
-// Disable SSR for the Map component (client-side only)
 const Map = dynamic(() => import("../../components/map"), { ssr: false });
 import { useState } from "react";
 
 export default function MapPage() {
   const [scale, setScale] = useState(50);
   const [days, setDays] = useState(120);
-  const [showHeatmap, setShowHeapmap] = useState(true);
+  const [showHeatmap, setShowHeapmap] = useState(false);
 
   const [tempScale, setTempScale] = useState(scale);
   const [tempDays, setTempDays] = useState(days);

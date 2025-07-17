@@ -392,6 +392,12 @@ export default function Map({
             type="text"
             value={tempKey}
             onChange={(e) => setTempKey(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                setKeyword(tempKey);
+              }
+            }}
             placeholder="Enter keyword…"
             className="w-full rounded-full bg-white text-black pl-4 py-2 pr-8 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
