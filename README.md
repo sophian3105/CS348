@@ -12,6 +12,10 @@
 - Fancy feature 4 (R14): Find the closest police report to each user report.
 - Fancy feature 5 (R15): Outline any circular area on the interactive map and see every assault that occured inside it.
 
+## Explore the Assault Database
+View our deployed resource at: https://cs348-production-6aa0.up.railway.app/
+This app was deployed using Railway. 
+
 ## Getting Started
 First, make sure to download all the node modules and start the development server. Make sure to populate the env file with google maps APIs and your mySQL credentials.
 ```bash
