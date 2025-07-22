@@ -10,7 +10,6 @@ export default function Navbar() {
 
   const mainLinks = [
     { href: "/", label: "Home" },
-    { href: "/dashboard", label: "Dashboard" },
     { href: "/report", label: "Report" },
     { href: "/analyze-route", label: "Analyze Location" },
   ]
