@@ -18,9 +18,13 @@ Second deadline:
 - Wrote high-level description
 - Described Feature 3
 4. Alice
+First deadline:
 - Described Feature 4
 - Created E/R diagram
 - Designed DB
+Second deadline:
+- Implemented and tested Fancy Feature 3
+- Built report submission frontend
 5. Sophia
 - Described Feature 5
 - Created E/R diagram
