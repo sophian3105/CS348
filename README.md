@@ -31,6 +31,7 @@ Option 1: Using Sample Data (For Testing Only)
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/createTables.sql
 mysql -u root -p -h 127.0.0.1 < sql/sample-data.sql
+mysql -u root -p -h 127.0.0.1 < sql/triggers.sql           
 ```
 
 Option 2: Using provided production data (small subset)
@@ -43,6 +44,7 @@ To run the sample sql commands, run
 ```bash
 mysql -u root -p -h 127.0.0.1 < sql/test-sample.sql
 mysql -u root -p -h 127.0.0.1 < sql/setup.sql
+mysql -u root -p -h 127.0.0.1 < sql/triggers.sql           
 ```
 
 Option 3: Using full Toronto Assault Open Dataset (warning: large dataset)
