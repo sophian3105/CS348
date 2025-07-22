@@ -10,6 +10,9 @@ Second deadline:
 - Created map feature to view the police and user reports in Toronto
 - Initialized the Next.js app and created API routes to fetch data from the SQL database
 - Implemented and tested fancy feature 2 (R12)
+Third deadline:
+- Migrated local MySql database to deployed dockerized Railway MySql database
+- Deployed the application to Railway
 
 2. Elsie
 - Described Feature 2
