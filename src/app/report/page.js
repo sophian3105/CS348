@@ -136,6 +136,7 @@ export default function ReportForm() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState("")
   const [reportId, setReportId] = useState("")
 
 
@@ -150,6 +151,7 @@ export default function ReportForm() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError("") 
     
     try {
       const response = await fetch('/api/userReport/submit', {
@@ -184,7 +186,7 @@ export default function ReportForm() {
       }, 3000)
     } catch (error) {
       console.error('Error submitting report:', error)
-      alert('Failed to submit report. Please try again.')
+      setSubmitError(error.message || 'Failed to submit report. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -221,7 +223,7 @@ export default function ReportForm() {
       formData.neighbourhood &&
       formData.latitude &&
       formData.longitude &&
-      formData.description.trim().length > 10 &&
+      formData.description.trim().length > 9 &&
       formData.reporter_email
     )
   }
@@ -439,6 +441,21 @@ export default function ReportForm() {
             >
               {isSubmitting ? "Submitting Report..." : "Submit Report"}
             </button>
+
+             {/* Error Message Display */}
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start flex-1">
+                      <AlertTriangle className="w-5 h-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" />
+                      <div className="text-red-800 text-sm">
+                        <strong className="text-red-800">Report Submission Failed:</strong> {submitError}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
           </form>
         </div>
       </div>

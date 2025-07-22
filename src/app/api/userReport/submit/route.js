@@ -101,7 +101,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Error submitting report:', error);
     return NextResponse.json(
-      { error: 'Failed to submit report', details: error.message },
+      { error: error.message },
       { status: 500 }
     );
   }
