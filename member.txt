@@ -10,13 +10,18 @@ Second deadline:
 - Created map feature to view the police and user reports in Toronto
 - Initialized the Next.js app and created API routes to fetch data from the SQL database
 - Implemented and tested fancy feature 2 (R12)
+Third deadline:
+- Migrated local MySql database to deployed dockerized Railway MySql database
+- Deployed the application to Railway
 
 2. Elsie
 - Described Feature 2
 - Wrote plan for toy data
+
 3. Helen
 - Wrote high-level description
 - Described Feature 3
+
 4. Alice
 First deadline:
 - Described Feature 4
@@ -25,8 +30,18 @@ First deadline:
 Second deadline:
 - Implemented and tested Fancy Feature 3
 - Built report submission frontend
+Third deadling: 
+- Added triggers for report submission
+
 5. Sophia
-- Described Feature 5
-- Created E/R diagram
+First deadline: 
 - Made repo
-- Designed DB
+- Designed database schemas
+- Described Feature 4: Sort by most recent report
+Second deadline:
+- Created README
+- Created setup guide with demo screenshots and short video
+- Added to README how to generate "production" dataset and load into database
+- Implemented feature 4
+Third deadline:
+- Implemented fancy feature 4: Find the closest police report to each user report

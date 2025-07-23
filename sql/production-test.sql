@@ -514,3 +514,4 @@ SELECT incident_count as total_incidents, avg_distance_km as avg_distance,
         calculated_risk_score as risk_score, CASE WHEN calculated_risk_score >= 7 THEN 'HIGH' WHEN calculated_risk_score >= 3 THEN 'MEDIUM' ELSE 'LOW' END as risk_level
 FROM final_calculation
 LIMIT 10;
+
