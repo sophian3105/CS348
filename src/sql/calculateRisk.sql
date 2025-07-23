@@ -71,7 +71,7 @@ distance_multiplier AS (
 final_calculation AS (
   SELECT 
     *,
-    LEAST(10, incident_count * 1.5 * distance_factor) as calculated_risk_score
+    LEAST(10, incident_count * 2 * distance_factor) as calculated_risk_score
   FROM distance_multiplier
 )
 
@@ -86,7 +86,7 @@ SELECT
   user_reports,
   calculated_risk_score as risk_score,
   CASE 
-    WHEN calculated_risk_score >= 7 THEN 'HIGH'
+    WHEN calculated_risk_score >= 5 THEN 'HIGH'
     WHEN calculated_risk_score >= 3 THEN 'MEDIUM'
     ELSE 'LOW'
   END as risk_level
