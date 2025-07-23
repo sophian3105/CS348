@@ -1,5 +1,9 @@
 ## Demo Video
-[https://drive.google.com/file/d/11_AWO_zGcZUnBmwJSbQRVuDbN4383cYa/view?usp=drive_link](url)
+[Demo](https://drive.google.com/file/d/11_AWO_zGcZUnBmwJSbQRVuDbN4383cYa/view?usp=drive_link)
+
+## Site
+Give us a visit at our production site!
+[AssaultTracker](https://cs348-production-6aa0.up.railway.app/map)
 
 ## Current Features
 - Loaded a production dataset, file found in src/dataprod.sql
@@ -108,7 +112,7 @@ Video Demo:
 
 
 Note: for more information regarding further details and implementations, please visit our presentation:
-https://docs.google.com/presentation/d/1It0IR5rgYDPcT8p_UDd7M_hfJmDKSGbQLNVyVvGyjVI/edit?usp=sharing
+[Presentation](https://docs.google.com/presentation/d/1It0IR5rgYDPcT8p_UDd7M_hfJmDKSGbQLNVyVvGyjVI/edit?usp=sharing)
 
 
 
