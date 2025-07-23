@@ -30,7 +30,7 @@ First deadline:
 Second deadline:
 - Implemented and tested Fancy Feature 3
 - Built report submission frontend
-Third deadling: 
+Third deadline: 
 - Added triggers for report submission
 
 5. Sophia
