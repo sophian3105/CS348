@@ -25,7 +25,14 @@ Third deadline:
 - Created E/R diagram
 - Designed DB
 5. Sophia
-- Described Feature 5
-- Created E/R diagram
+First deadline: 
 - Made repo
-- Designed DB
+- Designed database schemas
+- Described Feature 4: Sort by most recent report
+Second deadline:
+- Created README
+- Created setup guide with demo screenshots and short video
+- Added to README how to generate "production" dataset and load into database
+- Implemented feature 4
+Third deadline:
+- Implemented fancy feature 4: Find the closest police report to each user report
