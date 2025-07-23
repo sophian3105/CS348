@@ -24,6 +24,7 @@ Third deadline:
 - Described Feature 4
 - Created E/R diagram
 - Designed DB
+
 5. Sophia
 First deadline: 
 - Made repo
