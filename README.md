@@ -82,12 +82,33 @@ Explore the interactive map of user and police reports, with an additional heatm
 
 <img width="1512" alt="Screenshot 2025-07-06 at 8 54 35 PM" src="https://github.com/user-attachments/assets/34d00a01-3612-404c-bf92-4c6d961b4573" />
 
+#### Keyword map search
+Be able to search specific areas using our keyword search feature (points highlighted in red):
+
+<img width="540" height="490" alt="Screenshot 2025-07-23 at 2 34 43 AM" src="https://github.com/user-attachments/assets/cd42da5b-9720-49e8-8b7c-a96310822c6a" />
+
+#### Map Draw
+Or view the crimes in specific user-drawn circles using our map draw feature:
+<img width="501" height="399" alt="Screenshot 2025-07-23 at 2 37 43 AM" src="https://github.com/user-attachments/assets/a92fe772-6f79-459a-bd33-08d448776bb5" />
+<img width="722" height="611" alt="Screenshot 2025-07-23 at 2 35 33 AM" src="https://github.com/user-attachments/assets/ddf26794-bd47-425e-8f55-4bc8217a8565" />
+
+
+## Submitting a report
+Be able to submit detailed crime events through our reporting feature: 
+<img width="1179" height="827" alt="Screenshot 2025-07-23 at 2 30 19 AM" src="https://github.com/user-attachments/assets/f537a605-9b27-4932-8adf-490a4773d14d" />
+<img width="642" height="358" alt="Screenshot 2025-07-23 at 2 32 46 AM" src="https://github.com/user-attachments/assets/211534b1-7ddc-4e3f-b991-7fc4f058535d" />
+
+
 ## Running Location Safety Analysis
 A google maps API key is needed, one can be found under the 'fancy feature 1' section on the submitted document. 
 
 Video Demo:
 [https://drive.google.com/file/d/1hFFNzDAC22F8YC53K_b5FugYyKVV5JJO/view?usp=sharing](url)
 [https://drive.google.com/file/d/1mcIjhiMCXMg1qcwzF-4NoYumG-Kk7Ug4/view?usp=sharing](location safety feature)
+
+
+Note: for more information regarding further details and implementations, please visit our presentation:
+https://docs.google.com/presentation/d/1It0IR5rgYDPcT8p_UDd7M_hfJmDKSGbQLNVyVvGyjVI/edit?usp=sharing
 
 
 
