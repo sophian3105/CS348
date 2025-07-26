@@ -1,37 +1,46 @@
 report_id	occurred_at	neighborhood	location_name	source
-1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	Sidewalk	user
-1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	Sidewalk	user
-1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	Sidewalk	user
-1fa59a42-5bc5-11f0-bc4a-235029dcd79f	2025-06-03	Brampton	Park	user
+2ad52dba-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-08	Kensington Market	Sidewalk	user
+2ad52b3a-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-07	Kensington Market	Sidewalk	user
+2ad524d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-05	Kensington Market	Sidewalk	user
+2ad5282e-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-03	Brampton	Park	user
 report_id	occurred_at	neighborhood	location_name	source
-1fa53d2c-5bc5-11f0-bc4a-235029dcd79f	2025-05-10	Entertainment District	Street	police
-1fa541be-5bc5-11f0-bc4a-235029dcd79f	2025-04-20	Brampton	Transit Station	police
+2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-05-10	Entertainment District	Street	police
+2ad4dc98-6a52-11f0-a3ee-ea18b74d5ce7	2025-04-20	Brampton	Transit Station	police
 report_id	occurred_at	location_name	source
-1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	user
-1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	user
-1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	user
-1fa59a42-5bc5-11f0-bc4a-235029dcd79f	2025-06-03	Brampton	user
-1fa53d2c-5bc5-11f0-bc4a-235029dcd79f	2025-05-10	Entertainment District	police
-1fa541be-5bc5-11f0-bc4a-235029dcd79f	2025-04-20	Brampton	police
+2ad52dba-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-08	Kensington Market	user
+2ad52b3a-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-07	Kensington Market	user
+2ad524d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-05	Kensington Market	user
+2ad5282e-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-03	Brampton	user
+2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-05-10	Entertainment District	police
+2ad4dc98-6a52-11f0-a3ee-ea18b74d5ce7	2025-04-20	Brampton	police
 report_id	occured_at	location_name	type_id	source
-1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	Verbal Harassment	user
-1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	Physical Assault	user
-1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	Verbal Harassment	user
+2ad524d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-05	Kensington Market	Verbal Harassment	user
+2ad52b3a-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-07	Kensington Market	Physical Assault	user
+2ad52dba-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-08	Kensington Market	Verbal Harassment	user
 report_id	occured_at	location_name	type_id
-1fa59a42-5bc5-11f0-bc4a-235029dcd79f	2025-06-03	Brampton	Brampton Robbery
-1fa59f92-5bc5-11f0-bc4a-235029dcd79f	2025-06-07	Kensington Market	Physical Assault
-1fa53d2c-5bc5-11f0-bc4a-235029dcd79f	2025-05-10	Entertainment District	Physical Assault
-1fa541be-5bc5-11f0-bc4a-235029dcd79f	2025-04-20	Brampton	Theft in Brampton
-1fa59376-5bc5-11f0-bc4a-235029dcd79f	2025-06-05	Kensington Market	Verbal Harassment
-1fa5a410-5bc5-11f0-bc4a-235029dcd79f	2025-06-08	Kensington Market	Verbal Harassment
+2ad5282e-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-03	Brampton	Brampton Robbery
+2ad52b3a-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-07	Kensington Market	Physical Assault
+2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-05-10	Entertainment District	Physical Assault
+2ad4dc98-6a52-11f0-a3ee-ea18b74d5ce7	2025-04-20	Brampton	Theft in Brampton
+2ad524d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-05	Kensington Market	Verbal Harassment
+2ad52dba-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-08	Kensington Market	Verbal Harassment
 worstNbhd
 Kensington Market
 Brampton
 Entertainment District
 lat_bin	long_bin	occurrences
-43.65	-79.38	1
 43.65	-79.41	1
 43.7	-79.75	1
 43.66	-79.41	2
 total_incidents	avg_distance	assault_types	neighborhoods	premise_types	police_reports	user_reports	risk_score	risk_level
 1	0.4391895889377027	Physical Assault	Entertainment District	Public	1	0	1.65	LOW
+Trigger	Event	Table	Statement	Timing	Created	sql_mode	Definer	character_set_client	collation_connection	Database Collation
+validate_coordinates_before_insert	INSERT	userLocation	BEGIN\n    \n    IF NEW.latitude < 43 OR NEW.latitude > 44 THEN\n        SIGNAL SQLSTATE '45000' \n        SET MESSAGE_TEXT = 'Latitude must be within Toronto bounds';\n    END IF;\n    \n    \n    IF NEW.longitude < -80 OR NEW.longitude > -79 THEN\n        SIGNAL SQLSTATE '45000' \n        SET MESSAGE_TEXT = 'Longitude must be within Toronto bounds';\n    END IF;\nEND	BEFORE	2025-07-26 15:18:56.04	ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION	root@localhost	utf8mb3	utf8mb3_general_ci	utf8mb4_0900_ai_ci
+validate_incident_date	INSERT	userReports	BEGIN\n    \n    IF NEW.occurence_date > CURDATE() THEN\n        SIGNAL SQLSTATE '45000' \n        SET MESSAGE_TEXT = 'Incident date cannot be in the future';\n    END IF;\nEND	BEFORE	2025-07-26 15:18:56.04	ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION	root@localhost	utf8mb3	utf8mb3_general_ci	utf8mb4_0900_ai_ci
+report_id	occurred_at	neighborhood	location_name	source	closest_police	distance
+2ad52dba-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-08	Kensington Market	Sidewalk	user	2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	2.3901055255192345
+2ad52b3a-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-07	Kensington Market	Sidewalk	user	2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	2.3255760980212403
+2ad524d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-05	Kensington Market	Sidewalk	user	2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	1.956026905949768
+2ad5282e-6a52-11f0-a3ee-ea18b74d5ce7	2025-06-03	Brampton	Park	user	2ad4dc98-6a52-11f0-a3ee-ea18b74d5ce7	2.3648895450799987
+r_id	occurence_date	latitude	longitude	neighborhood	location_type	reporter_type
+2ad4d9d2-6a52-11f0-a3ee-ea18b74d5ce7	2025-05-10	43.65	-79.38	Entertainment District	Street	police

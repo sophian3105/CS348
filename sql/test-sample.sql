@@ -154,3 +154,132 @@ SELECT incident_count as total_incidents, avg_distance_km as avg_distance,
         calculated_risk_score as risk_score, CASE WHEN calculated_risk_score >= 7 THEN 'HIGH' WHEN calculated_risk_score >= 3 THEN 'MEDIUM' ELSE 'LOW' END as risk_level
 FROM final_calculation;
 
+-- R13a: User reported submissions with triggers to validate data
+DROP TRIGGER IF EXISTS validate_coordinates_before_insert;
+DROP TRIGGER IF EXISTS validate_incident_date;
+
+DELIMITER //
+CREATE TRIGGER validate_coordinates_before_insert
+BEFORE INSERT ON userLocation
+FOR EACH ROW
+BEGIN
+    -- Validate latitude is within Toronto bounds
+    IF NEW.latitude < 43 OR NEW.latitude > 44 THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Latitude must be within Toronto bounds';
+    END IF;
+    
+    -- Validate longitude is within Toronto bounds
+    IF NEW.longitude < -80 OR NEW.longitude > -79 THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Longitude must be within Toronto bounds';
+    END IF;
+END//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER validate_incident_date
+BEFORE INSERT ON userReports
+FOR EACH ROW
+BEGIN
+    -- Ensure incident date is not in the future
+    IF NEW.occurence_date > CURDATE() THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Incident date cannot be in the future';
+    END IF;
+END//
+DELIMITER ;
+
+SHOW TRIGGERS WHERE `Table` IN ('userLocation', 'userReports'); 
+
+/* don't run in tests because you get duplicates"
+INSERT INTO users(user_id, email, full_name, created_at, birth_date) VALUES ('123123232', 'testing123@gmail.com', 'Jane Smith', '2003-07-21 09:15:00', NULL);
+
+INSERT INTO userReports(r_id, assault_type, occurence_date, reported_date, user_id) VALUES ('123345', 'Physical', '2025-07-20 14:30:00', '2025-07-21 09:15:00', '123123232');
+
+INSERT INTO userLocation(r_id, longitude, latitude, neighborhood, location_type, premise_type) VALUES ('123345', -79.3832, 43.6532, 'Downtown', 'Street', '123123232');
+*/
+
+-- R14a: find the closest police report to a user report
+-- (Assume that 3d21354e-6364-11f0-bf74-d41b08d61b02 (police report) is at latitude 43.65 and longitude -79.38 which is 0.30km away from 050c31fc-f2d2-455e-837c-b627b3db1278 (user report) which is at latitude 43.65 and longitude -79.3763)
+DROP VIEW IF EXISTS policeReportLocation;
+
+CREATE VIEW policeReportLocation AS
+SELECT
+  pr.r_id AS police_rid,
+  pr.occurence_date,
+  pl.latitude,
+  pl.longitude,
+  pl.neighborhood,
+  pl.location_type
+FROM policeReports pr
+JOIN policeLocation pl ON pr.r_id = pl.r_id
+WHERE pl.latitude IS NOT NULL AND pl.longitude IS NOT NULL;
+
+SELECT
+  ur.r_id AS report_id,
+  ur.occurence_date AS occurred_at,
+  ul.neighborhood AS neighborhood,
+  ul.location_type AS location_name,
+  'user' AS source,
+  (
+    SELECT prl.police_rid
+    FROM policeReportLocation prl
+    ORDER BY 6371 * ACOS(COS(RADIANS(ul.latitude)) * 
+      COS(RADIANS(prl.latitude)) * COS(RADIANS(prl.longitude) - 
+      RADIANS(ul.longitude)) + SIN(RADIANS(ul.latitude)) * SIN(RADIANS(prl.latitude))
+    )
+    LIMIT 1
+  ) AS closest_police,
+  (
+    SELECT MIN(6371 * ACOS(COS(RADIANS(ul.latitude)) * 
+      COS(RADIANS(prl.latitude)) * COS(RADIANS(prl.longitude) - 
+      RADIANS(ul.longitude)) + SIN(RADIANS(ul.latitude)) * SIN(RADIANS(prl.latitude))))
+    FROM policeReportLocation prl
+  ) AS distance
+FROM userReports ur
+JOIN userLocation ul ON ur.r_id = ul.r_id
+WHERE ul.latitude IS NOT NULL AND ul.longitude IS NOT NULL
+ORDER BY ur.occurence_date DESC;
+
+-- R15a: find all assaults that occured within a circular radius
+
+SELECT
+  pl.r_id,
+  pr.occurence_date,
+  pl.latitude,
+  pl.longitude,
+  pl.neighborhood,
+  pl.location_type,
+  'police' AS reporter_type
+FROM policeLocation  pl
+JOIN policeReports   pr ON pr.r_id = pl.r_id
+WHERE ( 6371 * ACOS(
+          COS(RADIANS(43.654)) *
+          COS(RADIANS(pl.latitude)) *
+          COS(RADIANS(pl.longitude) - RADIANS(-79.380)) +
+          SIN(RADIANS(43.654)) *
+          SIN(RADIANS(pl.latitude))
+       )
+     ) <= 0.75
+
+UNION ALL
+
+SELECT
+  ul.r_id,
+  ur.occurence_date,
+  ul.latitude,
+  ul.longitude,
+  ul.neighborhood,
+  ul.location_type,
+  'user' AS reporter_type
+FROM userLocation   ul
+JOIN userReports    ur ON ur.r_id = ul.r_id
+WHERE ( 6371 * ACOS(
+          COS(RADIANS(43.654)) *
+          COS(RADIANS(ul.latitude)) *
+          COS(RADIANS(ul.longitude) - RADIANS(-79.380)) +
+          SIN(RADIANS(43.654)) *
+          SIN(RADIANS(ul.latitude))
+       )
+     ) <= 0.75;
