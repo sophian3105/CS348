@@ -106,9 +106,7 @@ Be able to submit detailed crime events through our reporting feature:
 ## Running Location Safety Analysis
 A google maps API key is needed, one can be found under the 'fancy feature 1' section on the submitted document. 
 
-Video Demo:
-[https://drive.google.com/file/d/1hFFNzDAC22F8YC53K_b5FugYyKVV5JJO/view?usp=sharing](url)
-[https://drive.google.com/file/d/1mcIjhiMCXMg1qcwzF-4NoYumG-Kk7Ug4/view?usp=sharing](location safety feature)
+Video Demo: https://drive.google.com/file/d/11_AWO_zGcZUnBmwJSbQRVuDbN4383cYa/view?usp=sharing 
 
 
 Note: for more information regarding further details and implementations, please visit our presentation:
