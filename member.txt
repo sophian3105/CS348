@@ -52,6 +52,7 @@ Second deadline:
 - Built report submission frontend
 Third deadline: 
 - Added triggers for report submission
+- Implemented feature 5
 
 5. Sophia
 First deadline: 
