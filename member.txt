@@ -19,8 +19,16 @@ Third deadline:
 - Wrote plan for toy data
 
 3. Helen
+First deadline: 
 - Wrote high-level description
 - Described Feature 3
+Second deadline: 
+- Implemented feature 3
+- Described, implemented and tested fancy feature 1
+- Created production tests for queries along with indexes
+Third deadline:
+- Created sample and production tests for new fancy feature queries
+- Updated the danger rating for fancy feature 1 by analyzing production data
 
 4. Alice
 First deadline:
