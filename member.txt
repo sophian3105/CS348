@@ -15,8 +15,20 @@ Third deadline:
 - Deployed the application to Railway
 
 2. Elsie
+First deadline: 
 - Described Feature 2
 - Wrote plan for toy data
+- set up mysql
+- created simple tables using php for inital frontend
+- popuated sample test files
+Second deadline: 
+- Wrote frontend design and layout along with functioning navbar and simple tables for feature queries
+- established all backend connections for sql queries with route.js files
+- Implemented feature 2
+Third deadline:
+- Described, implemented and tested fancy feature 5
+- created comprehensive demo video
+- added more feature descriptions and details to readme
 
 3. Helen
 First deadline: 
